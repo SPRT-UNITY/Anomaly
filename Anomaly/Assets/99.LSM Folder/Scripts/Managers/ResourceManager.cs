@@ -11,11 +11,11 @@ public class ResourceManager : SingletoneBase<ResourceManager>
         return Resources.Load<T>(path);
     }
 
-    //Instantiate Object
+    //Instantiate Prefabs
     public GameObject Instantiate(string path, Transform parent = null)
     {
-        GameObject prefab = Load<GameObject>($"Prfabs/{path}");
-        if(prefab != null)
+        GameObject prefab = Load<GameObject>($"Prefabs/{path}");
+        if(prefab == null)
         {
             Debug.Log($"Failed to load prefab : {path}");
             return null;

@@ -26,6 +26,6 @@ public class SingletoneBase<T> : MonoBehaviour where T : MonoBehaviour
 
     public virtual void Init()
     {
-        Debug.Log(transform.name = "is Init");
+        Debug.Log(transform.name + "is Init");
     }
 }
