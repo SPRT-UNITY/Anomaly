@@ -4,7 +4,22 @@ using UnityEngine;
 
 public class UIBase : MonoBehaviour
 {
-    protected void CloseUI()
+    public void InstantiateUI(Canvas canvas)
+    {
+        Instantiate(gameObject, canvas.transform);
+    }
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void DestroyUI()
+    {
+        Destroy(gameObject);
+    }
+
+    public void CloseUI()
     {
         gameObject.SetActive(false);
     }

@@ -6,24 +6,16 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.FilePathAttribute;
 
-public class AnormalyController : MonoBehaviour
+public class AnormalyController : SingletoneBase<AnormalyController>
 {
-    public static AnormalyController instance;
-
     public List<AnormalyBase> anormalyList = new List<AnormalyBase>();
 
     public event System.Action UpdateAnormaly;
 
     private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        isDontDestroy = false;
+        Init();
     }
 
     private void Start()

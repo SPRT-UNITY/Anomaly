@@ -11,16 +11,18 @@ public class HoldMouseUI : UIBase
     {
         uiAnim = transform.GetComponentInChildren<Animator>();
 
-        GameManager.instance.OnClicking += UpdateClicking;
-        GameManager.instance.CloseUI += CloseUI;
-        GameManager.instance.OnCheckingAnormaly += ActiveAnimation;
+        GameManager.Instance.OnClicking += UpdateClicking;
+        GameManager.Instance.CloseUI += CloseUI;
+        GameManager.Instance.OnCheckingAnormaly += ActiveAnimation;
+
+        gameObject.SetActive(false);
     }
 
     private void UpdateClicking(float clicking)
     {
         gameObject.SetActive(true);
 
-        transform.position = GameManager.instance.newMousePosition;
+        transform.position = GameManager.Instance.newMousePosition;
         transform.GetComponentInChildren<Image>().fillAmount = clicking / 2f;
     }
 

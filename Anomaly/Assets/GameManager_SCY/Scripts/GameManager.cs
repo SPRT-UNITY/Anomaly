@@ -5,10 +5,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingletoneBase<GameManager>
 {
-    public static GameManager instance;
-
     private float clicking = 0;
     private bool canClick;
     [HideInInspector] public int resolvedAnormaly;
@@ -24,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     AnormalyBase nowCheckingAnormaly;
 
+    public event Action<Vector3> OnRightMouseClick;
+    public event Action OnLeftMouseClick;
     public event Action<float> OnClicking;
     public event Action CloseUI;
     public event Action OnCheckingAnormaly;
@@ -31,21 +31,17 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
+        isDontDestroy = false;
         canClick = true;
+        Init();
     }
 
     private void Start()
     {
-        AnormalyController.instance.UpdateAnormaly += UpdateAnormalyCount;
+        AnormalyController.Instance.UpdateAnormaly += UpdateAnormalyCount;
+
+        UIManager.Instance.InitiateUI("HoldMouseUI");
+        UIManager.Instance.InitiateUI("ReportPopUp");
     }
 
     private void Update()
@@ -54,8 +50,14 @@ public class GameManager : MonoBehaviour
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {
+                OnLeftMouseClick?.Invoke();
                 newMousePosition = Input.mousePosition;
             }
+        }
+
+        if (canClick && Input.GetMouseButtonDown(1))
+        {
+            OnRightMouseClick?.Invoke(Input.mousePosition);
         }
 
         if (canClick && Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
@@ -67,7 +69,6 @@ public class GameManager : MonoBehaviour
                 OnClicking?.Invoke(clicking);
                 if (clicking >= 2f)
                 {
-                    canClick = false;
                     Debug.Log("Checking");
                     CheckObjectAnormaly(newMousePosition);
                 }
@@ -86,7 +87,7 @@ public class GameManager : MonoBehaviour
 
     private void UpdateAnormalyCount()
     {
-        anormalyCount = AnormalyController.instance.anormalyList.FindAll(x => x.IsAppear).Count;
+        anormalyCount = AnormalyController.Instance.anormalyList.FindAll(x => x.IsAppear).Count;
 
         if(anormalyCount >= 4)
         {
@@ -101,6 +102,8 @@ public class GameManager : MonoBehaviour
 
     private void CheckObjectAnormaly(Vector3 mousePosition)
     {
+        canClick = false;
+
         this.mouseposition = mousePosition;
         OnCheckingAnormaly?.Invoke();
 
@@ -122,8 +125,10 @@ public class GameManager : MonoBehaviour
 
     public void CheckEnvironmentAnormaly()
     {
+        canClick = false;
+
         CloseUI?.Invoke();
-        nowCheckingAnormaly = AnormalyController.instance.CheckEnvironmentAnormaly(nowSelectedLocation, nowSelectedType);
+        nowCheckingAnormaly = AnormalyController.Instance.CheckEnvironmentAnormaly(nowSelectedLocation, nowSelectedType);
 
         Invoke("CheckAnormaly", 3f);
     }

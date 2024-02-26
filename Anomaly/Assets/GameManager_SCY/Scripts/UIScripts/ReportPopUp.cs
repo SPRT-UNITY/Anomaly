@@ -9,19 +9,31 @@ public class ReportPopUp : UIBase
 
     private void Start()
     {
+        GameManager.Instance.OnRightMouseClick += UpdatePosition;
+        GameManager.Instance.OnLeftMouseClick += CloseUI;
+
+        gameObject.SetActive(false);
+    }
+
+    public void UpdatePosition(Vector3 position)
+    {
+        gameObject.SetActive(true);
+        transform.position = position;
     }
 
     public void OnClickAType(int type)
     {
-        GameManager.instance.nowSelectedType = (Anormaly_Type)type;
+        GameManager.Instance.nowSelectedType = (Anormaly_Type)type;
         selectLocation.SetActive(true);
         selectType.SetActive(false);
     }
 
     public void OnClickLocation(int location)
     {
-        GameManager.instance.nowSelectedLocation = (Anormaly_Location)location;
-        GameManager.instance.CheckEnvironmentAnormaly();
+        GameManager.Instance.nowSelectedLocation = (Anormaly_Location)location;
+        GameManager.Instance.CheckEnvironmentAnormaly();
+        selectLocation.SetActive(false);
+        selectType.SetActive(true);
         CloseUI();
     }
 
