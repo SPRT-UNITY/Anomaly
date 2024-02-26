@@ -22,17 +22,20 @@ public enum Anormaly_Type
     Abyss
 }
 
-public class AnormalyBase
+public class AnormalyBase : MonoBehaviour
 {
-    public Anormaly_Location A_Location { get; protected set; }
-    public Anormaly_Type A_Type { get; protected set; }
+    [field: SerializeField] public Anormaly_Location A_Location { get; protected set; }
+    [field: SerializeField] public Anormaly_Type A_Type { get; protected set; }
+    [field: SerializeField] public GameObject normalObject { get; private set; }
+    [field: SerializeField] public GameObject anormalObject { get; private set; }
 
-    public bool IsAppear;
+    [HideInInspector] public bool IsAppear;
 
-    public AnormalyBase()
+    private void Awake()
     {
         IsAppear = false;
     }
+
 
     public virtual void GenerateAnormaly()
     {
@@ -42,15 +45,5 @@ public class AnormalyBase
     public virtual void ResolveAnormaly()
     {
         IsAppear = false;
-    }
-
-    protected GameObject GetNormalObject(GameObject obj)
-    {
-        return obj.transform.Find("normal").gameObject;
-    }
-
-    protected GameObject GetAnormalObject(GameObject obj)
-    {
-        return obj.transform.Find("anormal").gameObject;
     }
 }
