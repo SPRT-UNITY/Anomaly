@@ -1750,9 +1750,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExitButton: {fileID: 8757021921348999412}
+  StartHouseButton: {fileID: 8835826358751844429}
 --- !u!114 &8757021921348999412 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5603496660194852320, guid: e860d6caeb785fa48a48f8a8cee5a5e0, type: 3}
+  m_PrefabInstance: {fileID: 3766328206019306772}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8835826358751844429 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5682283575139859801, guid: e860d6caeb785fa48a48f8a8cee5a5e0, type: 3}
   m_PrefabInstance: {fileID: 3766328206019306772}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
