@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public enum Anormaly_Location
 {
     Living_Room,
@@ -12,6 +14,8 @@ public enum Anormaly_Location
     Bath_Room
 }
 
+
+[Serializable]
 public enum Anormaly_Type
 {
     Object,
@@ -22,35 +26,35 @@ public enum Anormaly_Type
     Abyss
 }
 
-public class AnormalyBase
+public class AnormalyBase : MonoBehaviour
 {
+    [field: SerializeField]
     public Anormaly_Location A_Location { get; protected set; }
+    [field: SerializeField]
     public Anormaly_Type A_Type { get; protected set; }
 
-    public bool IsAppear;
+    [field: SerializeField]
+    public GameObject normalObject { get; private set; }
 
-    public AnormalyBase()
+    [field: SerializeField]
+    public AnormalyObject anormalObject { get; private set; }
+
+    private void Awake()
     {
-        IsAppear = false;
+        normalObject = gameObject.transform.Find("normal").gameObject;
+        anormalObject = gameObject.transform.Find("anormal").GetComponent<AnormalyObject>();
+        anormalObject.anormalResolvedEvent += ResolveAnormaly;
     }
 
     public virtual void GenerateAnormaly()
     {
-        IsAppear = true;
+        normalObject.SetActive(true);
+        anormalObject.gameObject.SetActive(false);
     }
 
     public virtual void ResolveAnormaly()
     {
-        IsAppear = false;
-    }
-
-    protected GameObject GetNormalObject(GameObject obj)
-    {
-        return obj.transform.Find("normal").gameObject;
-    }
-
-    protected GameObject GetAnormalObject(GameObject obj)
-    {
-        return obj.transform.Find("anormal").gameObject;
+        normalObject.SetActive(false);
+        anormalObject.gameObject.SetActive(true);
     }
 }

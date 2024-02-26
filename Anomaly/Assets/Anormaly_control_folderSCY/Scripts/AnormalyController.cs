@@ -73,7 +73,7 @@ public class AnormalyController : MonoBehaviour
 
     public AnormalyBase CheckEnvironmentAnormaly(Anormaly_Location location, Anormaly_Type type)
     {
-        AnormalyBase anormaly = anormalyList.Find(x => x.A_Location == location && x.A_Type == type && x.IsAppear);
+        AnormalyBase anormaly = anormalyList.Find(x => x.A_Location == location && x.A_Type == type && x.anormalObject.gameObject.activeSelf);
 
         return anormaly;
     }
