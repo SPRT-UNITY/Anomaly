@@ -12,8 +12,6 @@ public class AnormalyController : MonoBehaviour
 
     public List<AnormalyBase> anormalyList = new List<AnormalyBase>();
 
-    private AnormalyTest test;
-
     private void Awake()
     {
         if(instance == null)
@@ -24,9 +22,6 @@ public class AnormalyController : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        test = new AnormalyTest();
-        anormalyList.Add(test);
     }
 
     private void Start()
