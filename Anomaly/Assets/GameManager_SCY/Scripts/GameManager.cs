@@ -1,26 +1,33 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
     private float clicking = 0;
     private bool canClick;
+    [HideInInspector] public int resolvedAnormaly;
+    [HideInInspector] public int anormalyCount;
 
     [HideInInspector] public Vector2 mouseposition;
     [HideInInspector] public Vector2 newMousePosition;
 
+    [HideInInspector] public Anormaly_Type nowSelectedType;
+    [HideInInspector] public Anormaly_Location nowSelectedLocation;
+
     public LayerMask anormalyLayer;
 
-    //-------------------------------------------------
-    //UIManager로 옮길 예정
-    [SerializeField] GameObject clickingUI;
-    private Animator uiAnim;
-    //-------------------------------------------------
-
     AnormalyBase nowCheckingAnormaly;
+
+    public event Action<float> OnClicking;
+    public event Action CloseUI;
+    public event Action OnCheckingAnormaly;
+    public event Action OnGameover;
 
     private void Awake()
     {
@@ -34,29 +41,35 @@ public class GameManager : MonoBehaviour
         }
 
         canClick = true;
-        uiAnim = clickingUI.GetComponentInChildren<Animator>();
+    }
+
+    private void Start()
+    {
+        AnormalyController.instance.UpdateAnormaly += UpdateAnormalyCount;
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            newMousePosition = Input.mousePosition;
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                newMousePosition = Input.mousePosition;
+            }
         }
 
-        if (canClick && Input.GetMouseButton(0))
+        if (canClick && Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             clicking += Time.deltaTime;
 
             if (clicking >= 0.5f)
             {
-                Debug.Log("input");
-                UpdateClicking();
+                OnClicking?.Invoke(clicking);
                 if (clicking >= 2f)
                 {
                     canClick = false;
                     Debug.Log("Checking");
-                    CheckAnormaly(newMousePosition);
+                    CheckObjectAnormaly(newMousePosition);
                 }
             }
         }
@@ -66,26 +79,30 @@ public class GameManager : MonoBehaviour
             clicking = 0;
             if (canClick)
             {
-                clickingUI.SetActive(false);
+                CloseUI?.Invoke();
             }
         }
     }
 
-    //-------------------------------------------------
-    //UIManager로 옮길 예정
-    private void UpdateClicking()
+    private void UpdateAnormalyCount()
     {
-        clickingUI.SetActive(true);
+        anormalyCount = AnormalyController.instance.anormalyList.FindAll(x => x.IsAppear).Count;
 
-        clickingUI.transform.position = newMousePosition;
-        clickingUI.transform.GetComponentInChildren<Image>().fillAmount = clicking / 2f;
+        if(anormalyCount >= 4)
+        {
+            Die();
+        }
     }
-    //-------------------------------------------------
 
-    private void CheckAnormaly(Vector3 mousePosition)
+    public void Die()
+    {
+        OnGameover?.Invoke();
+    }
+
+    private void CheckObjectAnormaly(Vector3 mousePosition)
     {
         this.mouseposition = mousePosition;
-        uiAnim.SetBool("Checking", !canClick);
+        OnCheckingAnormaly?.Invoke();
 
         Ray ray = Camera.main.ScreenPointToRay(mouseposition);
         RaycastHit hit;
@@ -103,11 +120,19 @@ public class GameManager : MonoBehaviour
         Invoke("CheckAnormaly", 3f);
     }
 
+    public void CheckEnvironmentAnormaly()
+    {
+        CloseUI?.Invoke();
+        nowCheckingAnormaly = AnormalyController.instance.CheckEnvironmentAnormaly(nowSelectedLocation, nowSelectedType);
+
+        Invoke("CheckAnormaly", 3f);
+    }
+
     private void CheckAnormaly()
     {
-        clickingUI.SetActive(false);
+        CloseUI?.Invoke();
 
-        if(nowCheckingAnormaly != null && nowCheckingAnormaly.IsAppear)
+        if (nowCheckingAnormaly != null && nowCheckingAnormaly.IsAppear)
         {
             nowCheckingAnormaly.ResolveAnormaly();
             Debug.Log("Success");

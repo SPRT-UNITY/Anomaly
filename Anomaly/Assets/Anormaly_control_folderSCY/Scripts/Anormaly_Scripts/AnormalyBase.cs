@@ -26,8 +26,8 @@ public class AnormalyBase : MonoBehaviour
 {
     [field: SerializeField] public Anormaly_Location A_Location { get; protected set; }
     [field: SerializeField] public Anormaly_Type A_Type { get; protected set; }
-    [field: SerializeField] public GameObject normalObject { get; private set; }
-    [field: SerializeField] public GameObject anormalObject { get; private set; }
+    [field: SerializeField] public GameObject NormalObject { get; private set; }
+    [field: SerializeField] public GameObject AnormalObject { get; private set; }
 
     [HideInInspector] public bool IsAppear;
 

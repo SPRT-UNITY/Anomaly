@@ -12,6 +12,8 @@ public class AnormalyController : MonoBehaviour
 
     public List<AnormalyBase> anormalyList = new List<AnormalyBase>();
 
+    public event System.Action UpdateAnormaly;
+
     private void Awake()
     {
         if(instance == null)
@@ -26,16 +28,11 @@ public class AnormalyController : MonoBehaviour
 
     private void Start()
     {
-        anormalyList = ShuffleList(anormalyList);
+        ShuffleAnormaly();
     }
 
     //------------------------------------------------------------------------------------
     //Test Code
-    public void ResolveAnormaly()
-    {
-        anormalyList[0].ResolveAnormaly();
-    }
-
     public void GenerateAnormaly()
     {
         anormalyList[0].GenerateAnormaly();
@@ -56,14 +53,22 @@ public class AnormalyController : MonoBehaviour
     }
     //------------------------------------------------------------------------------------
 
-    public void GenerateAnormaly(AnormalyBase anormaly)
+    public void ShuffleAnormaly()
     {
-        anormaly.GenerateAnormaly();
+        anormalyList = ShuffleList(anormalyList);
     }
 
-    public void ResolveAnormaly(AnormalyBase anormaly)
+    public AnormalyBase GetAnormaly(int index)
     {
-        anormaly.ResolveAnormaly();
+        var list = anormalyList.FindAll(x => x.IsAppear == false);
+
+        return list[index];
+    }
+
+    public void GenerateAnormaly(int index)
+    {
+        anormalyList[index].GenerateAnormaly();
+        UpdateAnormaly?.Invoke();
     }
 
     public AnormalyBase CheckEnvironmentAnormaly(Anormaly_Location location, Anormaly_Type type)
