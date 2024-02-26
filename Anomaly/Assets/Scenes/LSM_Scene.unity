@@ -228,7 +228,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 0
+  m_Priority: 10
   m_StandbyUpdate: 0
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -1028,6 +1028,7 @@ MonoBehaviour:
   - {fileID: 1917752445}
   - {fileID: 1029865849}
   curCamNumber: 0
+  LookLocation: 0
 --- !u!1 &2125282417
 GameObject:
   m_ObjectHideFlags: 3

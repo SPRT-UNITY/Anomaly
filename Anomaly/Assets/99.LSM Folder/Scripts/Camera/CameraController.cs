@@ -7,6 +7,7 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera[] ViewCam;
     [SerializeField] private int curCamNumber = 0;
+    [SerializeField] private Anormaly_Location LookLocation = Anormaly_Location.Living_Room;
 
     private int viewCamCount;
 
@@ -40,6 +41,8 @@ public class CameraController : MonoBehaviour
             curCamNumber = 0;
             ViewCam[curCamNumber].Priority = 10;
         }
+
+        LookLocation = (Anormaly_Location)curCamNumber;
     }
 
     public void ShowBeforeCam()
@@ -55,5 +58,7 @@ public class CameraController : MonoBehaviour
             curCamNumber = viewCamCount;
             ViewCam[curCamNumber].Priority = 10;
         }
+
+        LookLocation = (Anormaly_Location)curCamNumber;
     }
 }
