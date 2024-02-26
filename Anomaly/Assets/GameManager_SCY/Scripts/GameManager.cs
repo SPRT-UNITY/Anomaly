@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,8 +10,17 @@ public class GameManager : MonoBehaviour
     private bool canClick;
 
     [HideInInspector] public Vector2 mouseposition;
+    [HideInInspector] public Vector2 newMousePosition;
 
     public LayerMask anormalyLayer;
+
+    //-------------------------------------------------
+    //UIManager로 옮길 예정
+    [SerializeField] GameObject clickingUI;
+    private Animator uiAnim;
+    //-------------------------------------------------
+
+    AnormalyBase nowCheckingAnormaly;
 
     private void Awake()
     {
@@ -24,13 +34,14 @@ public class GameManager : MonoBehaviour
         }
 
         canClick = true;
+        uiAnim = clickingUI.GetComponentInChildren<Animator>();
     }
 
     private void Update()
     {
-        if (canClick && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            mouseposition = Input.mousePosition;
+            newMousePosition = Input.mousePosition;
         }
 
         if (canClick && Input.GetMouseButton(0))
@@ -40,12 +51,12 @@ public class GameManager : MonoBehaviour
             if (clicking >= 0.5f)
             {
                 Debug.Log("input");
+                UpdateClicking();
                 if (clicking >= 2f)
                 {
                     canClick = false;
-                    clicking = 0;
                     Debug.Log("Checking");
-                    Invoke("CheckAnormaly", 3f);
+                    CheckAnormaly(newMousePosition);
                 }
             }
         }
@@ -53,19 +64,52 @@ public class GameManager : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             clicking = 0;
+            if (canClick)
+            {
+                clickingUI.SetActive(false);
+            }
         }
+    }
+
+    //-------------------------------------------------
+    //UIManager로 옮길 예정
+    private void UpdateClicking()
+    {
+        clickingUI.SetActive(true);
+
+        clickingUI.transform.position = newMousePosition;
+        clickingUI.transform.GetComponentInChildren<Image>().fillAmount = clicking / 2f;
+    }
+    //-------------------------------------------------
+
+    private void CheckAnormaly(Vector3 mousePosition)
+    {
+        this.mouseposition = mousePosition;
+        uiAnim.SetBool("Checking", !canClick);
+
+        Ray ray = Camera.main.ScreenPointToRay(mouseposition);
+        RaycastHit hit;
+        clicking = 0;
+
+        if (Physics.Raycast(ray, out hit, 100f, anormalyLayer))
+        {
+            nowCheckingAnormaly = hit.transform.GetComponentInParent<AnormalyBase>();
+        }
+        else
+        {
+            nowCheckingAnormaly = null;
+        }
+
+        Invoke("CheckAnormaly", 3f);
     }
 
     private void CheckAnormaly()
     {
-        Debug.Log("1");
+        clickingUI.SetActive(false);
 
-        Ray ray = Camera.main.ScreenPointToRay(mouseposition);
-        RaycastHit hit;
-
-        if(Physics.Raycast(ray, out hit, anormalyLayer))
+        if(nowCheckingAnormaly != null && nowCheckingAnormaly.IsAppear)
         {
-            hit.transform.GetComponentInParent<AnormalyBase>().ResolveAnormaly();
+            nowCheckingAnormaly.ResolveAnormaly();
             Debug.Log("Success");
         }
         else
@@ -75,4 +119,5 @@ public class GameManager : MonoBehaviour
 
         canClick = true;
     }
+
 }
