@@ -20,7 +20,7 @@ public class CameraManager : SingletoneBase<CameraManager>
 
     [HideInInspector] public ShowDirection direction;
 
-    public event Action CameraChange;
+    public event Action CameraChange;//카메라 변경 시 이벤트
 
     private void Awake()
     {
