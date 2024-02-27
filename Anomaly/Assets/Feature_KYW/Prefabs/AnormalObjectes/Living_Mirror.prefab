@@ -397,7 +397,7 @@ Transform:
   - {fileID: 1999136936506874737}
   - {fileID: 510273679512797344}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9142674190185894649
 MonoBehaviour:
@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <A_Location>k__BackingField: 0
-  <A_Type>k__BackingField: 0
+  <A_Type>k__BackingField: 5
   <normalObject>k__BackingField: {fileID: 8264094698669375787}
   <anormalObject>k__BackingField: {fileID: 8264094698669375787}
   IsAppear: 0
