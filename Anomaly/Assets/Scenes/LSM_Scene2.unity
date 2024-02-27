@@ -330,11 +330,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1102978438188958308, guid: 07ed13550a76cd2429958ba8f43d7c0e, type: 3}
   m_PrefabInstance: {fileID: 6675936528290769214}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &96146333 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8861551523754316063, guid: 9845050dcaf36af40aa8116a19c2f93c, type: 3}
-  m_PrefabInstance: {fileID: 7601853755246908046}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &106809794 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3431769699281883590, guid: 9e5c2bb5031891140882f5e81a01c0c7, type: 3}
@@ -1979,57 +1974,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5018950055216721060, guid: c15f037642a1e1b439d19869e86e1ddf, type: 3}
   m_PrefabInstance: {fileID: 3935343231857646166}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1091265636
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1091265637}
-  - component: {fileID: 1091265638}
-  m_Layer: 0
-  m_Name: KitchenCameraNoise
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1091265637
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1091265636}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1658065419}
-  - {fileID: 1904567310}
-  m_Father: {fileID: 96146333}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1091265638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1091265636}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 491430be5dc112d4daa04424bbe5f4c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <A_Location>k__BackingField: 3
-  <A_Type>k__BackingField: 1
-  <NormalObject>k__BackingField: {fileID: 0}
-  <AnormalObject>k__BackingField: {fileID: 0}
-  IsAppear: 0
 --- !u!4 &1107985886 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5566769706127300985, guid: 3a840935b4015fb44b4d247b6f257006, type: 3}
@@ -2441,7 +2385,7 @@ MonoBehaviour:
   outWorkCamera: 0
   direction: 0
   <CurCameraLookLocation>k__BackingField: 0
-  NosieLocation: 
+  NoiseLocation: 
   _PostPorcessProfiles: []
 --- !u!114 &1304393319
 MonoBehaviour:
@@ -3016,52 +2960,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1869183925147285591, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
   m_PrefabInstance: {fileID: 4727832873485194041}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1658065418
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1658065419}
-  - component: {fileID: 1658065420}
-  m_Layer: 0
-  m_Name: Anormal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1658065419
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658065418}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1091265637}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1658065420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1658065418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1f2ec65f73b5914ba8b918cb3452854, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _AnormalyObject: {fileID: 0}
-  _CameraManager: {fileID: 0}
 --- !u!4 &1667587296 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1017606091530846216, guid: c5be39b879c83f54d9bbfebe68c809be, type: 3}
@@ -3344,37 +3242,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5008556356809125375, guid: f01b8dde2f2266c4a9c87acaa4ed6003, type: 3}
   m_PrefabInstance: {fileID: 2946330773980898201}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1904567309
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1904567310}
-  m_Layer: 0
-  m_Name: Normal
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1904567310
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1904567309}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1091265637}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1916957758 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 853864459299421544, guid: 4fd059785718649499a344b0c22ecd22, type: 3}
@@ -5257,10 +5124,6 @@ PrefabInstance:
     - target: {fileID: 1785790817087856442, guid: fdd72feb81f873349b4cd653f410fdd6, type: 3}
       propertyPath: m_Name
       value: Bedroom
-      objectReference: {fileID: 0}
-    - target: {fileID: 3412152419459631224, guid: fdd72feb81f873349b4cd653f410fdd6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8954179199314019882, guid: fdd72feb81f873349b4cd653f410fdd6, type: 3}
       propertyPath: m_RootOrder
@@ -25590,10 +25453,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8357644765915015501}
     m_Modifications:
-    - target: {fileID: 2254709948084426317, guid: 9845050dcaf36af40aa8116a19c2f93c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2725438192942115529, guid: 9845050dcaf36af40aa8116a19c2f93c, type: 3}
       propertyPath: m_Name
       value: Kitchen
@@ -25642,16 +25501,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7376035874574545979, guid: 9845050dcaf36af40aa8116a19c2f93c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8861551523754316063, guid: 9845050dcaf36af40aa8116a19c2f93c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1091265637}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9845050dcaf36af40aa8116a19c2f93c, type: 3}
 --- !u!1001 &7620013420565430598

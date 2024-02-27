@@ -28,7 +28,7 @@ public class CameraManager : SingletoneBase<CameraManager>
     [HideInInspector] public ShowDirection direction;
 
     [field: SerializeField] public Anomaly_Location CurCameraLookLocation { get; private set; }
-    public List<Anomaly_Location> NoiseLocation;
+    [HideInInspector] public List<Anomaly_Location> NoiseLocation;
 
     //PostProcess
     private PostProcessVolume _CameraPostPorcessVolume;

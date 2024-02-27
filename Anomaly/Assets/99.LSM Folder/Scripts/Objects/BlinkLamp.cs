@@ -21,16 +21,17 @@ public class BlinkLamp : MonoBehaviour
     IEnumerator StartBlink()
     {
         Material material = _MeshRenderer.material;
+        WaitForSeconds blinkDeayTime = new WaitForSeconds(_blinkDealy);
 
         while (true)
         {
             _Light.enabled = false;
             material.DisableKeyword("_EMISSION");
-            yield return new WaitForSeconds(_blinkDealy);
+            yield return blinkDeayTime;
 
             _Light.enabled = true;
             material.EnableKeyword("_EMISSION");
-            yield return new WaitForSeconds(_blinkDealy);
+            yield return blinkDeayTime;
         }
     }
 }
