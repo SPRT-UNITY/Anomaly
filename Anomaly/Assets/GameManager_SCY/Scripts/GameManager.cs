@@ -31,19 +31,23 @@ public class GameManager : SingletoneBase<GameManager>
 
     AnormalyBase nowCheckingAnomaly;
 
-    public event Action<Vector3> OnRightMouseClick;
-    public event Action OnLeftMouseClick;
-    public event Action<float> OnClicking;
-    public event Action CloseUI;
+    public event Action<Vector3> OnRightMouseClick;//오른쪽 마우스 버튼 클릭
+    public event Action OnLeftMouseClick;//왼쪽 마우스 버튼 클릭
+    public event Action<float> OnClicking;//왼쪽 마우스 버튼 클릭 중
+    public event Action CloseUI;//UI 창 닫는 이벤트
 
-    public event Action OnCheckingAnomaly;
-    public event Action AnomalyWarnning;
+    public event Action OnCheckingAnomaly;//이상현상 체크중 이벤트
+    public event Action AnomalyWarnning;//이상현상이 3개 쌓였을 때 이벤트
+    public event Action OnAnomalyResolve;
+    public event Action OnNoAnomaly;
 
-    public event Action OnGameClear;
-    public event Action OnGameover;
+    public event Action OnGameClear;//게임 클리어 시 이벤트
+    public event Action OnGameover;//게임 오버 시 이벤트
 
     private void Awake()
     {
+        Time.timeScale = 1f;
+
         time = 0;
         timeSecond = 0;
         timeMinute = 0;
@@ -66,6 +70,8 @@ public class GameManager : SingletoneBase<GameManager>
         UIManager.Instance.InitiateUI("ReportPopUp");
         UIManager.Instance.InitiateUI("ArrowButtons");
         UIManager.Instance.InitiateUI("CheckingText");
+
+        resolvedAnomaly = 0;
     }
 
     //--------------------------------------------------------------------------------------------------------------------
@@ -168,14 +174,13 @@ public class GameManager : SingletoneBase<GameManager>
 
     public void Die()
     {
+        Time.timeScale = 0;
         OnGameover?.Invoke();
     }
 
     private void GameClear()
     {
         Time.timeScale = 0;
-        Debug.Log("GameClear");
-
         OnGameClear?.Invoke();
     }
 
@@ -221,10 +226,14 @@ public class GameManager : SingletoneBase<GameManager>
         if (nowCheckingAnomaly != null && nowCheckingAnomaly.IsAppear)
         {
             nowCheckingAnomaly.ResolveAnomaly();
+
+            OnAnomalyResolve?.Invoke();
+            resolvedAnomaly++;
             Debug.Log("Success");
         }
         else
         {
+            OnNoAnomaly?.Invoke();
             Debug.Log("NoAnormaly");
         }
 

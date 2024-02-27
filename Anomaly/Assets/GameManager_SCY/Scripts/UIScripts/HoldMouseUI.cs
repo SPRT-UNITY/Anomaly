@@ -11,7 +11,7 @@ public class HoldMouseUI : UIBase
 
     [SerializeField] private Image circle;
     [SerializeField] private Image checking;
-    [SerializeField] private Image cantInterext;
+    [SerializeField] private Image cantInterect;
 
     private void Start()
     {
@@ -23,6 +23,11 @@ public class HoldMouseUI : UIBase
         gameObject.SetActive(false);
     }
 
+    private void OnEnable()
+    {
+        GameManager.Instance.OnCheckingAnomaly += ActiveCheckingAnimation;
+    }
+
     private void UpdateClicking(float clicking)
     {
         gameObject.SetActive(true);
@@ -30,8 +35,6 @@ public class HoldMouseUI : UIBase
 
         transform.position = GameManager.Instance.newMousePosition;
         circle.fillAmount = clicking / 2f;
-
-        GameManager.Instance.OnCheckingAnomaly += ActiveAnimation;
     }
 
     public override void CloseUI()
@@ -39,16 +42,22 @@ public class HoldMouseUI : UIBase
         base.CloseUI();
         checking.gameObject.SetActive(false);
 
-        GameManager.Instance.OnCheckingAnomaly -= ActiveAnimation;
+        GameManager.Instance.OnCheckingAnomaly -= ActiveCheckingAnimation;
         CameraManager.Instance.CameraChange -= CameraCheck;
     }
 
-    private void ActiveAnimation()
+    private void ActiveCheckingAnimation()
     {
         CameraManager.Instance.CameraChange += CameraCheck;
         nowCamera = CameraManager.Instance.nowCameraNumber;
 
         checking.gameObject.SetActive(true);
+        circle.gameObject.SetActive(false);
+    }
+
+    private void ActiveCantInterectAnimation()
+    {
+        cantInterect.gameObject.SetActive(true);
         circle.gameObject.SetActive(false);
     }
 
