@@ -1,62 +1,140 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : SingletoneBase<GameManager>
 {
-    public static GameManager instance;
+    private float time;
+    private int timeSecond;
+    private int timeMinute;
+    private int timeHour;
+
     private float clicking = 0;
+    private float anomalyGenerateTime;//이상 현상 발생 시간 체크
+    private float anomalyCicle;//이상 현상 발생 주기
     private bool canClick;
+    private int index;
+
+    [HideInInspector] public int resolvedAnomaly;
+    [HideInInspector] public int anomalyCount;
 
     [HideInInspector] public Vector2 mouseposition;
     [HideInInspector] public Vector2 newMousePosition;
 
-    public LayerMask anormalyLayer;
+    [HideInInspector] public Anomaly_Type nowSelectedType;
+    [HideInInspector] public Anomaly_Location nowSelectedLocation;
 
-    //-------------------------------------------------
-    //UIManager로 옮길 예정
-    [SerializeField] GameObject clickingUI;
-    private Animator uiAnim;
-    //-------------------------------------------------
+    public LayerMask anomalyLayer;
 
-    AnormalyBase nowCheckingAnormaly;
+    AnormalyBase nowCheckingAnomaly;
+
+    public event Action<Vector3> OnRightMouseClick;
+    public event Action OnLeftMouseClick;
+    public event Action<float> OnClicking;
+    public event Action CloseUI;
+
+    public event Action OnCheckingAnomaly;
+    public event Action AnomalyWarnning;
+
+    public event Action OnGameClear;
+    public event Action OnGameover;
 
     private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        time = 0;
+        timeSecond = 0;
+        timeMinute = 0;
+        timeHour = 0;
 
+        index = 0;
+        anomalyGenerateTime = 0;
+        anomalyCicle = UnityEngine.Random.Range(5f, 15f);
+
+        isDontDestroy = false;
         canClick = true;
-        uiAnim = clickingUI.GetComponentInChildren<Animator>();
+        Init();
     }
+
+    private void Start()
+    {
+        AnormalyController.Instance.UpdateAnomaly += UpdateAnomalyCount;
+
+        UIManager.Instance.InitiateUI("HoldMouseUI");
+        UIManager.Instance.InitiateUI("ReportPopUp");
+        UIManager.Instance.InitiateUI("ArrowButtons");
+        UIManager.Instance.InitiateUI("CheckingText");
+    }
+
+    //--------------------------------------------------------------------------------------------------------------------
+    //game Update
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        MouseInput();
+
+        GenerateAnomaly();
+
+        UpdateTime();
+    }
+
+    private void UpdateTime()// 게임 시간 약 15분
+    {
+        time += Time.deltaTime;
+
+        if (time >= 1f)
         {
-            newMousePosition = Input.mousePosition;
+            timeSecond += 24;
+            time = 0f;
         }
 
-        if (canClick && Input.GetMouseButton(0))
+        if (timeSecond >= 60)
+        {
+            timeMinute += 1;
+            timeSecond -= 60;
+        }
+
+        if (timeMinute >= 60)
+        {
+            timeHour += 1;
+            timeMinute -= 60;
+        }
+
+        if(timeHour >= 6)
+        {
+            GameClear();
+        }
+    }
+
+    private void MouseInput()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (!EventSystem.current.IsPointerOverGameObject())
+            {
+                OnLeftMouseClick?.Invoke();
+                newMousePosition = Input.mousePosition;
+            }
+        }
+
+        if (canClick && Input.GetMouseButtonDown(1))
+        {
+            OnRightMouseClick?.Invoke(Input.mousePosition);
+        }
+
+        if (canClick && Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             clicking += Time.deltaTime;
 
             if (clicking >= 0.5f)
             {
-                Debug.Log("input");
-                UpdateClicking();
+                OnClicking?.Invoke(clicking);
                 if (clicking >= 2f)
                 {
-                    canClick = false;
                     Debug.Log("Checking");
-                    CheckAnormaly(newMousePosition);
+                    CheckObjectAnomaly(newMousePosition);
                 }
             }
         }
@@ -66,50 +144,83 @@ public class GameManager : MonoBehaviour
             clicking = 0;
             if (canClick)
             {
-                clickingUI.SetActive(false);
+                CloseUI?.Invoke();
             }
         }
     }
 
-    //-------------------------------------------------
-    //UIManager로 옮길 예정
-    private void UpdateClicking()
+    private void UpdateAnomalyCount()
     {
-        clickingUI.SetActive(true);
+        anomalyCount = AnormalyController.Instance.anomalyList.FindAll(x => x.IsAppear).Count;
+        Debug.Log(anomalyCount);
 
-        clickingUI.transform.position = newMousePosition;
-        clickingUI.transform.GetComponentInChildren<Image>().fillAmount = clicking / 2f;
+        if(anomalyCount == 3)//이상 현상 3개 중첩 시
+        {
+            Debug.Log("Warnning");
+            AnomalyWarnning?.Invoke();
+        }
+
+        if(anomalyCount >= 4)
+        {
+            Die();
+        }
     }
-    //-------------------------------------------------
 
-    private void CheckAnormaly(Vector3 mousePosition)
+    public void Die()
     {
+        OnGameover?.Invoke();
+    }
+
+    private void GameClear()
+    {
+        Time.timeScale = 0;
+        Debug.Log("GameClear");
+
+        OnGameClear?.Invoke();
+    }
+
+    //--------------------------------------------------------------------------------------------------------------------
+    //check anoramly
+    private void CheckObjectAnomaly(Vector3 mousePosition)
+    {
+        canClick = false;
+
         this.mouseposition = mousePosition;
-        uiAnim.SetBool("Checking", !canClick);
+        OnCheckingAnomaly?.Invoke();
 
         Ray ray = Camera.main.ScreenPointToRay(mouseposition);
         RaycastHit hit;
         clicking = 0;
 
-        if (Physics.Raycast(ray, out hit, 100f, anormalyLayer))
+        if (Physics.Raycast(ray, out hit, 100f, anomalyLayer))
         {
-            nowCheckingAnormaly = hit.transform.GetComponentInParent<AnormalyBase>();
+            nowCheckingAnomaly = hit.transform.GetComponentInParent<AnormalyBase>();
         }
         else
         {
-            nowCheckingAnormaly = null;
+            nowCheckingAnomaly = null;
         }
 
-        Invoke("CheckAnormaly", 3f);
+        Invoke("CheckAnomaly", 3f);
     }
 
-    private void CheckAnormaly()
+    public void CheckEnvironmentAnomaly()
     {
-        clickingUI.SetActive(false);
+        canClick = false;
+        OnCheckingAnomaly?.Invoke();
 
-        if(nowCheckingAnormaly != null && nowCheckingAnormaly.IsAppear)
+        nowCheckingAnomaly = AnormalyController.Instance.CheckEnvironmentAnomaly(nowSelectedLocation, nowSelectedType);
+
+        Invoke("CheckAnomaly", 3f);
+    }
+
+    private void CheckAnomaly()
+    {
+        CloseUI?.Invoke();
+
+        if (nowCheckingAnomaly != null && nowCheckingAnomaly.IsAppear)
         {
-            nowCheckingAnormaly.ResolveAnormaly();
+            nowCheckingAnomaly.ResolveAnomaly();
             Debug.Log("Success");
         }
         else
@@ -118,6 +229,31 @@ public class GameManager : MonoBehaviour
         }
 
         canClick = true;
+    }
+
+    //--------------------------------------------------------------------------------------------------------------------
+    //generate anomary
+    private void GenerateAnomaly()
+    {
+        anomalyGenerateTime += Time.deltaTime;
+
+        if(anomalyGenerateTime >= anomalyCicle)
+        {
+            SetGenerateTime();
+            anomalyGenerateTime = 0;
+            AnormalyController.Instance.GenerateAnomaly(index);
+            index++;
+
+            if(index >= AnormalyController.Instance.anomalyList.Count)
+            {
+                index = 0;
+            }
+        }
+    }
+
+    private void SetGenerateTime()
+    {
+        anomalyCicle = UnityEngine.Random.Range(10f, 20f);
     }
 
 }

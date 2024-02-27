@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class AnormalyObject : AnormalyBase
 {
-    public override void GenerateAnormaly()
+    public override void GenerateAnomaly()
     {
-        base.GenerateAnormaly();
-        normalObject.SetActive(false);
-        anormalObject.SetActive(true);
+        base.GenerateAnomaly();
+        NormalObject.SetActive(false);
+        AnormalObject.SetActive(true);
     }
 
-    public override void ResolveAnormaly()
+    public override void ResolveAnomaly()
     {
-        base.ResolveAnormaly();
-        normalObject.SetActive(true);
-        anormalObject.SetActive(false);
+        base.ResolveAnomaly();
+        NormalObject.SetActive(true);
+        AnormalObject.SetActive(false);
     }
 }
