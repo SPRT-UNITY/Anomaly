@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8146449140465935078}
   - component: {fileID: 7200026445848681808}
   - component: {fileID: 8483632184883681615}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Sculpture_apt_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1959604872486438419}
   - component: {fileID: 6146054050019856103}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: SculptureAnormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ Transform:
   - {fileID: 7629498685820059596}
   - {fileID: 2350229853108167294}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6146054050019856103
 MonoBehaviour:
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 7366472217193039047}
   - component: {fileID: 6447467932045145286}
   - component: {fileID: 5026820664694761812}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.17039253, y: 0.45015174, z: 0.489078}
+  m_Size: {x: 0.2, y: 0.5, z: 0.5}
   m_Center: {x: 0, y: 0.22507581, z: 0.08397969}
 --- !u!1 &8374145698850218032
 GameObject:
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 8124555850658262805}
   - component: {fileID: 3908990848307894275}
   - component: {fileID: 5881500631048975084}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,5 +343,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4061743, y: 0.015343269, z: 0.4061743}
-  m_Center: {x: 0, y: 0.0076716263, z: 0}
+  m_Size: {x: 0.4061743, y: 1.36, z: 0.4061743}
+  m_Center: {x: 0, y: 0.67, z: 0}
