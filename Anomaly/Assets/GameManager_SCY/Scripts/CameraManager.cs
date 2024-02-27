@@ -3,11 +3,18 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public enum ShowDirection
 {
     Right,
     Left
+}
+
+public enum PostProcessProfileType
+{
+    Bloom,
+    Noise
 }
 
 public class CameraManager : SingletoneBase<CameraManager>
@@ -21,10 +28,10 @@ public class CameraManager : SingletoneBase<CameraManager>
     [HideInInspector] public ShowDirection direction;
 
     [field: SerializeField] public Anomaly_Location CurCameraLookLocation { get; private set; }
-    private RenderTexture RenderTexture_LowQuality;
-    private GameObject CameraCanvas;
 
     public event Action CameraChange;
+    private PostProcessVolume _CameraPostPorcessVolume;
+    [HideInInspector] public List<PostProcessProfile> _PostPorcessProfiles;
 
     private void Awake()
     {
@@ -35,6 +42,10 @@ public class CameraManager : SingletoneBase<CameraManager>
 
         isProblem = false;
         outWorkCamera = -1;
+
+        _CameraPostPorcessVolume = GetComponent<PostProcessVolume>();
+        _PostPorcessProfiles.Add(ResourceManager.Instance.Load<PostProcessProfile>("Lighting/Bloom"));
+        _PostPorcessProfiles.Add(ResourceManager.Instance.Load<PostProcessProfile>("Lighting/Noise"));
     }
 
     private void CheckCameraOK()
@@ -91,26 +102,11 @@ public class CameraManager : SingletoneBase<CameraManager>
 
     public void ChangeCameraQuality_Noise()
     {
-        if (RenderTexture_LowQuality == null)
-        {
-            RenderTexture_LowQuality = ResourceManager.Instance.Load<RenderTexture>("Textures/PixelateRenderTexture");
-        }
-
-        if (CameraCanvas == null)
-        {
-            CameraCanvas = ResourceManager.Instance.Instantiate("UI/CameraCanvas");
-        }
-
-        CameraCanvas?.SetActive(true);
-        Camera.main.targetTexture = RenderTexture_LowQuality;
+        _CameraPostPorcessVolume.profile = _PostPorcessProfiles[(int)PostProcessProfileType.Noise];
     }
 
     public void ChangeCameraQuality_Base()
     {
-        if (Camera.main.targetTexture != null)
-        {
-            Camera.main.targetTexture = null;
-            CameraCanvas?.SetActive(false);
-        }
+        _CameraPostPorcessVolume.profile = _PostPorcessProfiles[(int)PostProcessProfileType.Bloom];
     }
 }
