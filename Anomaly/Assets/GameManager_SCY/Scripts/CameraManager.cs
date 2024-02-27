@@ -20,6 +20,10 @@ public class CameraManager : SingletoneBase<CameraManager>
 
     [HideInInspector] public ShowDirection direction;
 
+    [field: SerializeField] public Anomaly_Location CurCameraLookLocation { get; private set; }
+    private RenderTexture RenderTexture_LowQuality;
+    private GameObject CameraCanvas;
+
     public event Action CameraChange;
 
     private void Awake()
@@ -49,7 +53,7 @@ public class CameraManager : SingletoneBase<CameraManager>
                 ChangeCamera();
             }
         }
-        else if(nowCameraNumber < 0)
+        else if (nowCameraNumber < 0)
         {
             nowCameraNumber = cameras.Count - 1;
 
@@ -62,7 +66,7 @@ public class CameraManager : SingletoneBase<CameraManager>
 
     private void ChangeCamera()
     {
-        if(direction == ShowDirection.Right)
+        if (direction == ShowDirection.Right)
         {
             nowCameraNumber++;
         }
@@ -80,7 +84,33 @@ public class CameraManager : SingletoneBase<CameraManager>
         CheckCameraOK();
 
         cameras[nowCameraNumber].gameObject.SetActive(true);
+        CurCameraLookLocation = (Anomaly_Location)nowCameraNumber;
 
         CameraChange?.Invoke();
+    }
+
+    public void ChangeCameraQuality_Noise()
+    {
+        if (RenderTexture_LowQuality == null)
+        {
+            RenderTexture_LowQuality = ResourceManager.Instance.Load<RenderTexture>("Textures/PixelateRenderTexture");
+        }
+
+        if (CameraCanvas == null)
+        {
+            CameraCanvas = ResourceManager.Instance.Instantiate("UI/CameraCanvas");
+        }
+
+        CameraCanvas?.SetActive(true);
+        Camera.main.targetTexture = RenderTexture_LowQuality;
+    }
+
+    public void ChangeCameraQuality_Base()
+    {
+        if (Camera.main.targetTexture != null)
+        {
+            Camera.main.targetTexture = null;
+            CameraCanvas?.SetActive(false);
+        }
     }
 }

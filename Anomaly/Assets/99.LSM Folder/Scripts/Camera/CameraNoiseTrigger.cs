@@ -1,25 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraNoiseTrigger : MonoBehaviour
 {
-    [SerializeField] private Anormaly_Location _CurCameraLookLocation = Anormaly_Location.Library;
     [SerializeField] private AnormalyObject _AnormalyObject;
+    [SerializeField] private CameraManager _CameraManager;
 
-    private void Start()
+    private void Awake()
     {
         _AnormalyObject = GetComponentInParent<AnormalyObject>();
-        _CurCameraLookLocation = CameraController.Instance.LookLocation;
-        CameraController.Instance.OnChangeCamera += ChangeCurLookLocation;
+    }
+    private void OnEnable()
+    {
+        if (_CameraManager == null)
+            _CameraManager = CameraManager.Instance;
+
+        _CameraManager.CameraChange += SetCameraNoise;
+        SetCameraNoise();
     }
 
-    private void ChangeCurLookLocation()
+    private void OnDisable()
     {
-        _CurCameraLookLocation = CameraController.Instance.LookLocation;
+        _CameraManager.ChangeCameraQuality_Base();
+        _CameraManager.CameraChange -= SetCameraNoise;
     }
 
-    private void StartCameraNoise()
+    private void SetCameraNoise()
     {
+        if (_CameraManager.CurCameraLookLocation == _AnormalyObject.A_Location)
+        {
+            Debug.Log("노이즈 장소 맞음");
+            _CameraManager.ChangeCameraQuality_Noise();
+        }
+        else {
+
+            Debug.Log("노이즈 장소 아님");
+            _CameraManager.ChangeCameraQuality_Base();
+        }
     }
 }
