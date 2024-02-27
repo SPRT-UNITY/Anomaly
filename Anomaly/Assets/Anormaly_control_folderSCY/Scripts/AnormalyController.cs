@@ -8,9 +8,9 @@ using static UnityEditor.FilePathAttribute;
 
 public class AnormalyController : SingletoneBase<AnormalyController>
 {
-    public List<AnormalyBase> anormalyList = new List<AnormalyBase>();
+    public List<AnormalyBase> anomalyList = new List<AnormalyBase>();
 
-    public event System.Action UpdateAnormaly;
+    public event System.Action UpdateAnomaly;
 
     private void Awake()
     {
@@ -20,52 +20,52 @@ public class AnormalyController : SingletoneBase<AnormalyController>
 
     private void Start()
     {
-        ShuffleAnormaly();
+        ShuffleAnomaly();
     }
 
     //------------------------------------------------------------------------------------
     //Test Code
-    public void GenerateAnormaly()
+    public void GenerateAnomaly()
     {
-        anormalyList[0].GenerateAnormaly();
+        anomalyList[0].GenerateAnomaly();
     }
 
     public void TempButtoen()
     {
-        AnormalyBase anormaly = CheckEnvironmentAnormaly(Anormaly_Location.Living_Room, Anormaly_Type.Object);
+        AnormalyBase anomaly = CheckEnvironmentAnomaly(Anomaly_Location.Living_Room, Anomaly_Type.Object);
 
-        if(anormaly == null)
+        if(anomaly == null)
         {
-            Debug.Log("NoAnormaly");
+            Debug.Log("NoAnomaly");
         }
         else
         {
-            anormaly.ResolveAnormaly();
+            anomaly.ResolveAnomaly();
         }
     }
     //------------------------------------------------------------------------------------
 
-    public void ShuffleAnormaly()
+    public void ShuffleAnomaly()
     {
-        anormalyList = ShuffleList(anormalyList);
+        anomalyList = ShuffleList(anomalyList);
     }
 
-    public AnormalyBase GetAnormaly(int index)
+    public AnormalyBase GetAnomaly(int index)
     {
-        var list = anormalyList.FindAll(x => x.IsAppear == false);
+        var list = anomalyList.FindAll(x => x.IsAppear == false);
 
         return list[index];
     }
 
-    public void GenerateAnormaly(int index)
+    public void GenerateAnomaly(int index)
     {
-        anormalyList[index].GenerateAnormaly();
-        UpdateAnormaly?.Invoke();
+        anomalyList[index].GenerateAnomaly();
+        UpdateAnomaly?.Invoke();
     }
 
-    public AnormalyBase CheckEnvironmentAnormaly(Anormaly_Location location, Anormaly_Type type)
+    public AnormalyBase CheckEnvironmentAnomaly(Anomaly_Location location, Anomaly_Type type)
     {
-        AnormalyBase anormaly = anormalyList.Find(x => x.A_Location == location && x.A_Type == type && x.IsAppear);
+        AnormalyBase anormaly = anomalyList.Find(x => x.A_Location == location && x.A_Type == type && x.IsAppear);
 
         return anormaly;
     }

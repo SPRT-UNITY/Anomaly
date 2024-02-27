@@ -39,7 +39,6 @@ public class UIManager : SingletoneBase<UIManager>
     public void InitiateUI(string UIName)
     {
         UIBase ui = UIList.Find(ui => ui.name == UIName);
-        Debug.Log(UIList.Count);
 
         if (ui == null)
         {

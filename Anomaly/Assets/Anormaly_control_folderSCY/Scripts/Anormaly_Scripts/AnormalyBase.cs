@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum Anormaly_Location
+public enum Anomaly_Location
 {
     Living_Room,
     Bed_Room,
@@ -12,7 +12,7 @@ public enum Anormaly_Location
     Bath_Room
 }
 
-public enum Anormaly_Type
+public enum Anomaly_Type
 {
     Object,
     Camera,
@@ -24,8 +24,8 @@ public enum Anormaly_Type
 
 public class AnormalyBase : MonoBehaviour
 {
-    [field: SerializeField] public Anormaly_Location A_Location { get; protected set; }
-    [field: SerializeField] public Anormaly_Type A_Type { get; protected set; }
+    [field: SerializeField] public Anomaly_Location A_Location { get; protected set; }
+    [field: SerializeField] public Anomaly_Type A_Type { get; protected set; }
     [field: SerializeField] public GameObject NormalObject { get; private set; }
     [field: SerializeField] public GameObject AnormalObject { get; private set; }
 
@@ -37,12 +37,12 @@ public class AnormalyBase : MonoBehaviour
     }
 
 
-    public virtual void GenerateAnormaly()
+    public virtual void GenerateAnomaly()
     {
         IsAppear = true;
     }
 
-    public virtual void ResolveAnormaly()
+    public virtual void ResolveAnomaly()
     {
         IsAppear = false;
     }

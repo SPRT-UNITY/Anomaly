@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class AnormalyObject : AnormalyBase
 {
-    public override void GenerateAnormaly()
+    public override void GenerateAnomaly()
     {
-        base.GenerateAnormaly();
+        base.GenerateAnomaly();
         NormalObject.SetActive(false);
         AnormalObject.SetActive(true);
     }
 
-    public override void ResolveAnormaly()
+    public override void ResolveAnomaly()
     {
-        base.ResolveAnormaly();
+        base.ResolveAnomaly();
         NormalObject.SetActive(true);
         AnormalObject.SetActive(false);
     }

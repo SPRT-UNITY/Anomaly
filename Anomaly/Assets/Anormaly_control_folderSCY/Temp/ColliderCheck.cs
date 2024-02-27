@@ -6,6 +6,6 @@ public class ColliderCheck : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        other.GetComponentInParent<AnormalyBase>().ResolveAnormaly();
+        other.GetComponentInParent<AnormalyBase>().ResolveAnomaly();
     }
 }

@@ -19,7 +19,7 @@ public class UIBase : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void CloseUI()
+    public virtual void CloseUI()
     {
         gameObject.SetActive(false);
     }
