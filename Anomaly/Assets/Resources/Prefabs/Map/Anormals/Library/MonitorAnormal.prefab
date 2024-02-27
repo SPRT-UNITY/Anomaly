@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4740010453527351294}
   - component: {fileID: 1782978389217293021}
   - component: {fileID: 4335001068654212984}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3238694125378883533}
   - component: {fileID: 1402707711708718801}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: MonitorAnormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 808579120676869307}
   - component: {fileID: 8806107828038350024}
   - component: {fileID: 4336034743697388798}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 2448997062619292452}
   - component: {fileID: 91855823403405523}
   - component: {fileID: 6150387274088616978}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   - component: {fileID: 8122745429068476261}
   - component: {fileID: 7852822977692250584}
   - component: {fileID: 6056072097599301314}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
