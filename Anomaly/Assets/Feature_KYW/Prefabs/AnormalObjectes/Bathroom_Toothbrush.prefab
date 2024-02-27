@@ -744,6 +744,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3193454996857017611}
+  - component: {fileID: 6976963301119809150}
   m_Layer: 0
   m_Name: Bathroom_Toothbrush
   m_TagString: Untagged
@@ -766,8 +767,25 @@ Transform:
   - {fileID: 3922616348408324697}
   - {fileID: 6398599165757738766}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6976963301119809150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5649807754651031405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 491430be5dc112d4daa04424bbe5f4c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <A_Location>k__BackingField: 0
+  <A_Type>k__BackingField: 0
+  <normalObject>k__BackingField: {fileID: 1905285031886514174}
+  <anormalObject>k__BackingField: {fileID: 2095060377651995175}
+  IsAppear: 0
 --- !u!1 &8844018685211952732
 GameObject:
   m_ObjectHideFlags: 0
