@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class BlinkLamp : MonoBehaviour
 {
-    //불빛 오브젝트
+    //Light Objects
     [SerializeField] private Light _Light;
 
-    //이미션 오브젝트
     [SerializeField] private MeshRenderer _MeshRenderer;
 
-    //Blink 주기
+    //Blink Time
     [SerializeField][Range(0.1f, 3f)] private float _blinkDealy;
 
     private void OnEnable()
