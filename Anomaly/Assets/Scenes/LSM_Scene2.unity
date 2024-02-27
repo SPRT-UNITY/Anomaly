@@ -2441,6 +2441,8 @@ MonoBehaviour:
   outWorkCamera: 0
   direction: 0
   <CurCameraLookLocation>k__BackingField: 0
+  NosieLocation: 
+  _PostPorcessProfiles: []
 --- !u!114 &1304393319
 MonoBehaviour:
   m_ObjectHideFlags: 0

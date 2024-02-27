@@ -28,10 +28,14 @@ public class CameraManager : SingletoneBase<CameraManager>
     [HideInInspector] public ShowDirection direction;
 
     [field: SerializeField] public Anomaly_Location CurCameraLookLocation { get; private set; }
+    public List<Anomaly_Location> NoiseLocation;
 
-    public event Action CameraChange;
+    //PostProcess
     private PostProcessVolume _CameraPostPorcessVolume;
     [HideInInspector] public List<PostProcessProfile> _PostPorcessProfiles;
+
+    //Evnets
+    public event Action CameraChange;
 
     private void Awake()
     {
@@ -46,6 +50,7 @@ public class CameraManager : SingletoneBase<CameraManager>
         _CameraPostPorcessVolume = GetComponent<PostProcessVolume>();
         _PostPorcessProfiles.Add(ResourceManager.Instance.Load<PostProcessProfile>("Lighting/Bloom"));
         _PostPorcessProfiles.Add(ResourceManager.Instance.Load<PostProcessProfile>("Lighting/Noise"));
+        CameraChange += SetCameraNoise;
     }
 
     private void CheckCameraOK()
@@ -108,5 +113,28 @@ public class CameraManager : SingletoneBase<CameraManager>
     public void ChangeCameraQuality_Base()
     {
         _CameraPostPorcessVolume.profile = _PostPorcessProfiles[(int)PostProcessProfileType.Bloom];
+    }
+
+    //NoiseLocation 리스트에 존재하면 노이즈 발생
+    public void SetCameraNoise()
+    {
+        if (NoiseLocation != null)
+        {
+            List<Anomaly_Location> noiseLocation = NoiseLocation;
+            bool isNoise = false;
+
+            foreach (var loaction in noiseLocation)
+            {
+                if (loaction == CurCameraLookLocation)
+                {
+                    isNoise = true;
+                }
+            }
+
+            if (isNoise)
+                ChangeCameraQuality_Noise();
+
+            else ChangeCameraQuality_Base();
+        }
     }
 }
