@@ -11,6 +11,6 @@ public class TitleGameStartCanvas : UIBase
     private void Awake()
     {
         ExitButton.onClick.AddListener(() => CloseUI());
-        StartHouseButton.onClick.AddListener(() => LoadSceneController.LoadScene("MainScene"));
+        StartHouseButton.onClick.AddListener(() => LoadSceneController.LoadScene("LSM_Scene2"));
     }
 }
