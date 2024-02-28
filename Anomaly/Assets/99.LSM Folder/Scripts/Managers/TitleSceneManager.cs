@@ -12,7 +12,7 @@ public class TitleSceneManager : SingletoneBase<TitleSceneManager>
         //Setting Use objects In Title
         Init_TitleScene();
     }
-
+    
     private void Init_TitleScene()
     {
         ResourceManager.Instance.Instantiate("Title/TitleUICanvas");
