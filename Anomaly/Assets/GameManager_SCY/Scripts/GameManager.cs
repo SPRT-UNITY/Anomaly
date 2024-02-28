@@ -42,6 +42,7 @@ public class GameManager : SingletoneBase<GameManager>
     public event Action AnomalyWarning;//이상현상이 3개 쌓였을 때 이벤트
     public event Action OnAnomalyResolve;
     public event Action OnNoAnomaly;
+    public event Action DontInterect;
 
     public event Action OnGameClear;//게임 클리어 시 이벤트
     public event Action OnGameover;//게임 오버 시 이벤트
@@ -195,7 +196,6 @@ public class GameManager : SingletoneBase<GameManager>
         canClick = false;
 
         this.mouseposition = mousePosition;
-        OnCheckingAnomaly?.Invoke();
 
         Ray ray = Camera.main.ScreenPointToRay(mouseposition);
         RaycastHit hit;
@@ -204,13 +204,23 @@ public class GameManager : SingletoneBase<GameManager>
         if (Physics.Raycast(ray, out hit, 100f, anomalyLayer))
         {
             nowCheckingAnomaly = hit.transform.GetComponentInParent<AnormalyBase>();
+
         }
         else
         {
             nowCheckingAnomaly = null;
         }
 
-        Invoke("CheckAnomaly", 3f);
+        if (nowCheckingAnomaly != null && nowCheckingAnomaly.A_Type == Anomaly_Type.Abyss)
+        {
+            DontInterect?.Invoke();
+            canClick = true;
+        }
+        else
+        {
+            OnCheckingAnomaly?.Invoke();
+            Invoke("CheckAnomaly", 3f);
+        }
     }
 
     public void CheckEnvironmentAnomaly()
