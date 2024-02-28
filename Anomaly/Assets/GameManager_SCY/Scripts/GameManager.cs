@@ -10,13 +10,14 @@ public class GameManager : SingletoneBase<GameManager>
     private float time;
     private int timeSecond;
     private int timeMinute;
-    private int timeHour;
+    [SerializeField]private int timeHour;
 
+    private int index;
     private float clicking = 0;
     private float anomalyGenerateTime;//이상 현상 발생 시간 체크
     private float anomalyCicle;//이상 현상 발생 주기
     private bool canClick;
-    private int index;
+    private bool nowPlaying;
 
     [HideInInspector] public int resolvedAnomaly;
     [HideInInspector] public int anomalyCount;
@@ -36,8 +37,9 @@ public class GameManager : SingletoneBase<GameManager>
     public event Action<float> OnClicking;//왼쪽 마우스 버튼 클릭 중
     public event Action CloseUI;//UI 창 닫는 이벤트
 
+    public event Action<int, int> UpdateTimeText;
     public event Action OnCheckingAnomaly;//이상현상 체크중 이벤트
-    public event Action AnomalyWarnning;//이상현상이 3개 쌓였을 때 이벤트
+    public event Action AnomalyWarning;//이상현상이 3개 쌓였을 때 이벤트
     public event Action OnAnomalyResolve;
     public event Action OnNoAnomaly;
 
@@ -46,7 +48,8 @@ public class GameManager : SingletoneBase<GameManager>
 
     private void Awake()
     {
-        Time.timeScale = 1f;
+        UIManager.Instance.UIList.Clear();
+        UIManager.Instance.canvasList.Clear();
 
         time = 0;
         timeSecond = 0;
@@ -59,6 +62,7 @@ public class GameManager : SingletoneBase<GameManager>
 
         isDontDestroy = false;
         canClick = true;
+        nowPlaying = true;
         Init();
     }
 
@@ -66,12 +70,9 @@ public class GameManager : SingletoneBase<GameManager>
     {
         AnormalyController.Instance.UpdateAnomaly += UpdateAnomalyCount;
 
-        UIManager.Instance.InitiateUI("HoldMouseUI");
-        UIManager.Instance.InitiateUI("ReportPopUp");
-        UIManager.Instance.InitiateUI("ArrowButtons");
-        UIManager.Instance.InitiateUI("CheckingText");
-
         resolvedAnomaly = 0;
+
+        anomalyLayer = 1 << 31;
     }
 
     //--------------------------------------------------------------------------------------------------------------------
@@ -79,11 +80,14 @@ public class GameManager : SingletoneBase<GameManager>
 
     private void Update()
     {
-        MouseInput();
+        if (nowPlaying)
+        {
+            MouseInput();
 
-        GenerateAnomaly();
+            GenerateAnomaly();
 
-        UpdateTime();
+            UpdateTime();
+        }
     }
 
     private void UpdateTime()// 게임 시간 약 15분
@@ -100,12 +104,14 @@ public class GameManager : SingletoneBase<GameManager>
         {
             timeMinute += 1;
             timeSecond -= 60;
-        }
 
-        if (timeMinute >= 60)
-        {
-            timeHour += 1;
-            timeMinute -= 60;
+            if (timeMinute >= 60)
+            {
+                timeHour += 1;
+                timeMinute -= 60;
+            }
+
+            UpdateTimeText?.Invoke(timeHour, timeMinute);
         }
 
         if(timeHour >= 6)
@@ -139,7 +145,6 @@ public class GameManager : SingletoneBase<GameManager>
                 OnClicking?.Invoke(clicking);
                 if (clicking >= 2f)
                 {
-                    Debug.Log("Checking");
                     CheckObjectAnomaly(newMousePosition);
                 }
             }
@@ -162,8 +167,7 @@ public class GameManager : SingletoneBase<GameManager>
 
         if(anomalyCount == 3)//이상 현상 3개 중첩 시
         {
-            Debug.Log("Warnning");
-            AnomalyWarnning?.Invoke();
+            AnomalyWarning?.Invoke();
         }
 
         if(anomalyCount >= 4)
@@ -174,13 +178,13 @@ public class GameManager : SingletoneBase<GameManager>
 
     public void Die()
     {
-        Time.timeScale = 0;
+        nowPlaying = false;
         OnGameover?.Invoke();
     }
 
     private void GameClear()
     {
-        Time.timeScale = 0;
+        nowPlaying = false;
         OnGameClear?.Invoke();
     }
 
@@ -229,12 +233,10 @@ public class GameManager : SingletoneBase<GameManager>
 
             OnAnomalyResolve?.Invoke();
             resolvedAnomaly++;
-            Debug.Log("Success");
         }
         else
         {
             OnNoAnomaly?.Invoke();
-            Debug.Log("NoAnormaly");
         }
 
         canClick = true;
