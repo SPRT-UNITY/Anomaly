@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1463948626876752641}
-  - component: {fileID: 5879059915655846235}
+  - component: {fileID: 2843561518372140003}
   m_Layer: 31
   m_Name: BooksAnormal
   m_TagString: Untagged
@@ -32,9 +32,9 @@ Transform:
   - {fileID: 906911514843230632}
   - {fileID: 4564766041209560103}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5879059915655846235
+--- !u!114 &2843561518372140003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3998122571987976731}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7958ddacf3f982f4d9739ad82b73634f, type: 3}
+  m_Script: {fileID: 11500000, guid: 491430be5dc112d4daa04424bbe5f4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <A_Location>k__BackingField: 1

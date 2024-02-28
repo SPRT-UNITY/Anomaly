@@ -59,7 +59,7 @@ public class GameManager : SingletoneBase<GameManager>
 
         index = 0;
         anomalyGenerateTime = 0;
-        anomalyCicle = UnityEngine.Random.Range(5f, 15f);
+        anomalyCicle = UnityEngine.Random.Range(20f, 30f);
 
         isDontDestroy = false;
         canClick = true;
@@ -274,7 +274,7 @@ public class GameManager : SingletoneBase<GameManager>
 
     private void SetGenerateTime()
     {
-        anomalyCicle = UnityEngine.Random.Range(10f, 20f);
+        anomalyCicle = UnityEngine.Random.Range(25f, 40f);
     }
 
 }

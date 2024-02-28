@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491430be5dc112d4daa04424bbe5f4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <A_Location>k__BackingField: 5
+  <A_Location>k__BackingField: 2
   <A_Type>k__BackingField: 4
   <NormalObject>k__BackingField: {fileID: 5127622273550742675}
   <AnormalObject>k__BackingField: {fileID: 4705548722100817481}

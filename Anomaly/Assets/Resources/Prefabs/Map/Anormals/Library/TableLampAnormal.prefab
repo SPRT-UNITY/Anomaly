@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6057717354989815031}
-  - component: {fileID: 8525158198901297781}
+  - component: {fileID: 8667443731554954303}
   m_Layer: 0
   m_Name: TableLampAnormal
   m_TagString: Untagged
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8525158198901297781
+--- !u!114 &8667443731554954303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 291498802417161294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7958ddacf3f982f4d9739ad82b73634f, type: 3}
+  m_Script: {fileID: 11500000, guid: 491430be5dc112d4daa04424bbe5f4c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <A_Location>k__BackingField: 1
