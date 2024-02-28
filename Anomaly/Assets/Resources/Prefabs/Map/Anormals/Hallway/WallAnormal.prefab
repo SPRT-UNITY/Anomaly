@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2618557023170513106}
   - component: {fileID: 2624295672150256824}
   - component: {fileID: 4388045174953150938}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,8 +115,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5523844432789023706}
   - component: {fileID: 8322396733362401411}
-  m_Layer: 0
-  m_Name: AnormalWall
+  m_Layer: 31
+  m_Name: WallAnormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 2976656746261405743}
   - component: {fileID: 3927510484101882021}
   - component: {fileID: 439596263856736776}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
