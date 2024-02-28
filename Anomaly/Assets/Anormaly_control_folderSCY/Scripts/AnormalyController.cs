@@ -12,6 +12,8 @@ public class AnormalyController : SingletoneBase<AnormalyController>
 
     public event System.Action UpdateAnomaly;
 
+    private bool isStart;
+
     private void Awake()
     {
         isDontDestroy = false;
@@ -20,7 +22,7 @@ public class AnormalyController : SingletoneBase<AnormalyController>
 
     private void Start()
     {
-        ShuffleAnomaly();
+        isStart = false;
     }
 
     //------------------------------------------------------------------------------------
@@ -59,6 +61,12 @@ public class AnormalyController : SingletoneBase<AnormalyController>
 
     public void GenerateAnomaly(int index)
     {
+        if (!isStart)
+        {
+            ShuffleAnomaly();
+            isStart = true;
+        }
+
         anomalyList[index].GenerateAnomaly();
         UpdateAnomaly?.Invoke();
     }

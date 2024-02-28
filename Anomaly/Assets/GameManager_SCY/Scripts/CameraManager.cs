@@ -2,6 +2,7 @@ using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
@@ -43,6 +44,7 @@ public class CameraManager : SingletoneBase<CameraManager>
         Init();
 
         nowCameraNumber = 0;
+        CurCameraLookLocation = CameraLookLocation(nowCameraNumber);
 
         isProblem = false;
         outWorkCamera = -1;
@@ -51,8 +53,11 @@ public class CameraManager : SingletoneBase<CameraManager>
         _PostPorcessProfiles.Add(ResourceManager.Instance.Load<PostProcessProfile>("Lighting/Bloom"));
         _PostPorcessProfiles.Add(ResourceManager.Instance.Load<PostProcessProfile>("Lighting/Noise"));
         CameraChange += SetCameraNoise;
+
+        InitiateCamera();
     }
 
+    //카메라가 사용가능한지 확인
     private void CheckCameraOK()
     {
         if (isProblem && nowCameraNumber == outWorkCamera)
@@ -100,7 +105,14 @@ public class CameraManager : SingletoneBase<CameraManager>
         CheckCameraOK();
 
         cameras[nowCameraNumber].gameObject.SetActive(true);
-        CurCameraLookLocation = (Anomaly_Location)nowCameraNumber;
+        CurCameraLookLocation = CameraLookLocation(nowCameraNumber);
+
+        CameraChange?.Invoke();
+    }
+
+    public void InitiateCamera()
+    {
+        cameras[nowCameraNumber].gameObject.SetActive(true);
 
         CameraChange?.Invoke();
     }
@@ -136,5 +148,15 @@ public class CameraManager : SingletoneBase<CameraManager>
 
             else ChangeCameraQuality_Base();
         }
+    }
+
+    public string NowCameraName()
+    {
+        return cameras[nowCameraNumber].GetComponent<CameraName>().GetCameraName();
+    }
+
+    public Anomaly_Location CameraLookLocation(int index)
+    {
+        return cameras[index].GetComponent<CameraName>().location;
     }
 }

@@ -9,7 +9,7 @@ public class AnormalyCameraDisappear : AnormalyBase
         base.GenerateAnomaly();
         int outCamera = Random.Range(0, CameraManager.Instance.cameras.Count);
 
-        A_Location = (Anomaly_Location)outCamera;
+        A_Location = CameraManager.Instance.CameraLookLocation(outCamera);
         Debug.Log(A_Location);
 
         CameraManager.Instance.isProblem = true;

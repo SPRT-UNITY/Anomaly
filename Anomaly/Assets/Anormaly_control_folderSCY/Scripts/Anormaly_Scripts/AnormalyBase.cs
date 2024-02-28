@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,6 +37,16 @@ public class AnormalyBase : MonoBehaviour
         IsAppear = false;
     }
 
+    private void Start()
+    {
+        AnormalyController.Instance.anomalyList.Add(this);
+        AtStart();
+    }
+
+    protected virtual void AtStart()
+    {
+
+    }
 
     public virtual void GenerateAnomaly()
     {
