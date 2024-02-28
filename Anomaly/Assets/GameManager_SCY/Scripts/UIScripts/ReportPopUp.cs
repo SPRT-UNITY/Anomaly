@@ -12,6 +12,9 @@ public class ReportPopUp : UIBase
         GameManager.Instance.OnRightMouseClick += UpdatePosition;
         GameManager.Instance.OnLeftMouseClick += ResetUI;
 
+        selectLocation.SetActive(false);
+        selectType.SetActive(true);
+
         gameObject.SetActive(false);
     }
 

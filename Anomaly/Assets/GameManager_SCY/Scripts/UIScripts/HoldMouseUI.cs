@@ -7,16 +7,12 @@ public class HoldMouseUI : UIBase
 {
     private int nowCamera;
 
-    private Animator uiAnim;
-
     [SerializeField] private Image circle;
     [SerializeField] private Image checking;
     [SerializeField] private Image cantInterect;
 
     private void Start()
     {
-        uiAnim = circle.GetComponent<Animator>();
-
         GameManager.Instance.OnClicking += UpdateClicking;
         GameManager.Instance.CloseUI += CloseUI;
 
