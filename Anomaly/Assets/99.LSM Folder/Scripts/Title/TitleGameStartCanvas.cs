@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-enum TitleButtons
+enum TitleStartButtonType
 {
     House,
     Dungeon,
@@ -34,14 +34,13 @@ public class TitleGameStartCanvas : UIBase
         {
             OnPointerEnter_Button onPointerEnter = button.AddComponent<OnPointerEnter_Button>();
             onPointerEnter.OnMouseImage = ResourceManager.Instance.Instantiate("Title/OnMouse_Image", button.transform);
-            onPointerEnter.OnMouseImage.SetActive(false);
         }
 
         //Caching Buttons
-        Button backButton = StartButtons[(int)TitleButtons.Back];
+        Button backButton = StartButtons[(int)TitleStartButtonType.Back];
 
         //Button OnClick AddListeners
-        StartButtons[(int)TitleButtons.House].onClick.AddListener(() => LoadSceneController.LoadScene("LSM_Scene2"));
+        StartButtons[(int)TitleStartButtonType.House].onClick.AddListener(() => LoadSceneController.LoadScene("LSM_Scene2"));
         backButton.onClick.AddListener(() => backButton.GetComponent<OnPointerEnter_Button>().OnMouseImage_ActiveFalse());
     }
 }
