@@ -22,6 +22,7 @@ public class HoldMouseUI : UIBase
     private void OnEnable()
     {
         GameManager.Instance.OnCheckingAnomaly += ActiveCheckingAnimation;
+        GameManager.Instance.DontInterect += ActiveCantInterectAnimation;
     }
 
     private void UpdateClicking(float clicking)
@@ -37,8 +38,10 @@ public class HoldMouseUI : UIBase
     {
         base.CloseUI();
         checking.gameObject.SetActive(false);
+        cantInterect.gameObject.SetActive(false);
 
         GameManager.Instance.OnCheckingAnomaly -= ActiveCheckingAnimation;
+        GameManager.Instance.DontInterect -= ActiveCantInterectAnimation;
         CameraManager.Instance.CameraChange -= CameraCheck;
     }
 
@@ -55,6 +58,8 @@ public class HoldMouseUI : UIBase
     {
         cantInterect.gameObject.SetActive(true);
         circle.gameObject.SetActive(false);
+
+        Invoke("CloseUI", 1f);
     }
 
     private void CameraCheck()
