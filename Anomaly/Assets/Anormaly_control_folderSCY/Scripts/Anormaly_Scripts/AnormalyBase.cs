@@ -4,12 +4,12 @@ using UnityEngine;
 
 public enum Anomaly_Location
 {
-    Living_Room,
     Bed_Room,
-    Kichen,
     Library,
-    Collider,
-    Bath_Room
+    Bath_Room,
+    Kichen,
+    Hallway,
+    Living_Room,
 }
 
 public enum Anomaly_Type
