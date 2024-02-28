@@ -30,16 +30,17 @@ public class LoadSceneController : MonoBehaviour
         {
             yield return null;
 
-            if (loadScene.progress < 0.8f)
+            if (loadScene.progress < 0.5f)
             {
                 LoadingBar.value = loadScene.progress;
             }
             else
             {
                 timer += Time.unscaledDeltaTime;
-                LoadingBar.value = Mathf.Lerp(0.8f, 1f, timer);
+                LoadingBar.value = Mathf.Lerp(0.5f, 1f, timer);
                 if(LoadingBar.value >= 1f)
                 {
+                    yield return new WaitForSeconds(1f);
                     loadScene.allowSceneActivation = true;
                     yield break;
                 }
