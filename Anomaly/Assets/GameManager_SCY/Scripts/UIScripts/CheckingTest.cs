@@ -10,10 +10,10 @@ public class CheckingTest : UIBase
 
     private string[] text = new string[]
     {
-        "Checking",
-        "Checking.",
-        "Checking..",
-        "Checking...",
+        "확인 중",
+        "확인 중.",
+        "확인 중..",
+        "확인 중...",
     };
     private int index;
     private float time;
