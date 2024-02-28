@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2749999023685307460}
   - component: {fileID: 2994559505441975011}
   - component: {fileID: 5374331884059879848}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: AnormalObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2323396048297750528}
   - component: {fileID: 8679391211448350315}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Living_Vase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 9158859127330774911}
   - component: {fileID: 4400908084230699894}
   - component: {fileID: 710288177001319567}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 1969498736977363612}
   - component: {fileID: 5607930031722877058}
   - component: {fileID: 6255114605625560006}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

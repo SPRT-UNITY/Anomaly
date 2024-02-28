@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5613997765784014190}
   - component: {fileID: 1068172346134571937}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Bathroom_Footprints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4521566808508706502}
   - component: {fileID: 3617275425330788547}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9122508982868724941}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   - component: {fileID: 1313365620317246230}
   - component: {fileID: 2821507810001816600}
   - component: {fileID: 956462641479937994}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: FootPrint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 4136972059638705341}
   - component: {fileID: 8616554008696337768}
   - component: {fileID: 5974202486759388975}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: FootPrint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +363,7 @@ GameObject:
   - component: {fileID: 910182608381370074}
   - component: {fileID: 2863557404164658544}
   - component: {fileID: 4364700839558246939}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: FootPrint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   - component: {fileID: 8050118501616508948}
   - component: {fileID: 9138158585644981237}
   - component: {fileID: 1619613273485956234}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: FootPrint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

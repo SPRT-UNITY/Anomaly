@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5773039088144637011}
   - component: {fileID: 8519445415486457142}
   - component: {fileID: 8995977260645487334}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 1662011333967173237}
   - component: {fileID: 7074759132540131287}
   - component: {fileID: 7534749391559651211}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -266,7 +266,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8490673670842823528}
   - component: {fileID: 5625536275581425205}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Living_Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}

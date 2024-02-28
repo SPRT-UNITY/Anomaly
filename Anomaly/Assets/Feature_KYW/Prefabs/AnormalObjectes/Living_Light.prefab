@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7119095329195472051}
   - component: {fileID: 7709627265498486254}
   - component: {fileID: 8701985167388977458}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1845785975135448067}
   - component: {fileID: 6683535210664210235}
   - component: {fileID: 6739546351416057226}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1781884902085449606}
   - component: {fileID: 8120760045190301650}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Living_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   - component: {fileID: 6729703724948463908}
   - component: {fileID: 2149238267347580043}
   - component: {fileID: 3997598838698978332}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -505,7 +505,7 @@ GameObject:
   - component: {fileID: 7676135024599609633}
   - component: {fileID: 7165226397790003560}
   - component: {fileID: 6613572986275473769}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

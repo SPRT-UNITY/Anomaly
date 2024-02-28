@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7409962569915431660}
   - component: {fileID: 4065744170241985136}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 791445816801309016}
   - component: {fileID: 3168408919404898301}
   - component: {fileID: 5993207910375897439}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: props_128
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1573191990677016837}
   - component: {fileID: 4035250089385569746}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Living_Slippers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 750914033870272117}
   - component: {fileID: 7808412252638319209}
   - component: {fileID: 1058058687874900265}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: props_128a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 2061405742883693168}
   - component: {fileID: 622536032139884869}
   - component: {fileID: 8318590061311570124}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: props_128a
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 4180606237958004816}
   - component: {fileID: 422583429572311977}
   - component: {fileID: 940236028151182073}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: props_128
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8285203619225461594}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

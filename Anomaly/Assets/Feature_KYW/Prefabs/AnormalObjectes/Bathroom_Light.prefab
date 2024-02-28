@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2097607375459469850}
   - component: {fileID: 1179646284554536733}
   - component: {fileID: 5695060935400142997}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: BulbBase.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 255153045958633848}
   - component: {fileID: 7294558571239523434}
   - component: {fileID: 2355176362188476632}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Shade_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3652013833274258796}
   - component: {fileID: 4866464735121034090}
   - component: {fileID: 1398369156330572980}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Shade_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 8382121385685732645}
   - component: {fileID: 7066954089873757414}
   - component: {fileID: 2510099222785933978}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: BulbBase.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 2710500548098986844}
   - component: {fileID: 1252773957660550735}
   - component: {fileID: 1352578685544670223}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Shade_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 4972729013459596258}
   - component: {fileID: 3031902263215072511}
   - component: {fileID: 5126240256789416618}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Shade_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,7 +515,7 @@ GameObject:
   - component: {fileID: 9178992142849814984}
   - component: {fileID: 8586787335251181456}
   - component: {fileID: 737137688725402264}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: BulbBase.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 3832998509375728721}
   - component: {fileID: 418896342637908352}
   - component: {fileID: 3430478662581612881}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: BulbBase.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 7468313386766085580}
   - component: {fileID: 8519020445904338083}
   - component: {fileID: 2109256088071552663}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -854,7 +854,7 @@ GameObject:
   - component: {fileID: 6020209910997697149}
   - component: {fileID: 6232687574910181398}
   - component: {fileID: 1430774311703262530}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Bulb.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -937,7 +937,7 @@ GameObject:
   - component: {fileID: 8989810174472410103}
   - component: {fileID: 3295813317443190184}
   - component: {fileID: 4001138888791299784}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: BulbBase.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1024,7 +1024,7 @@ GameObject:
   - component: {fileID: 718556112917186483}
   - component: {fileID: 1788246161799288846}
   - component: {fileID: 9153072250943901285}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1214,7 +1214,7 @@ GameObject:
   - component: {fileID: 2096738107041827311}
   - component: {fileID: 3466836757098906902}
   - component: {fileID: 1200088073643731882}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Bulb.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1297,7 +1297,7 @@ GameObject:
   - component: {fileID: 2371990351530563848}
   - component: {fileID: 2178472566640337096}
   - component: {fileID: 3123723051234991054}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Bulb.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1380,7 +1380,7 @@ GameObject:
   - component: {fileID: 1184819317614950488}
   - component: {fileID: 6847226393578586641}
   - component: {fileID: 8475965393576950543}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: BulbBase.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1464,7 +1464,7 @@ GameObject:
   - component: {fileID: 1721813373945051469}
   - component: {fileID: 3359245460153408110}
   - component: {fileID: 7717033025160939324}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Bulb.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1547,7 +1547,7 @@ GameObject:
   - component: {fileID: 5981417284105395456}
   - component: {fileID: 2150592937713220995}
   - component: {fileID: 9089953429691455562}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Bulb.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1630,7 +1630,7 @@ GameObject:
   - component: {fileID: 9142053695909625220}
   - component: {fileID: 5366018376620444203}
   - component: {fileID: 4758946147767904733}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Shade_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1714,7 +1714,7 @@ GameObject:
   - component: {fileID: 3403050512239455879}
   - component: {fileID: 8892444488230077525}
   - component: {fileID: 9212341180098884609}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Bulb.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1796,7 +1796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8919368445027661032}
   - component: {fileID: 281133494303275656}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Bathroom_Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1848,7 +1848,7 @@ GameObject:
   - component: {fileID: 6095666647653449685}
   - component: {fileID: 8995430456200138128}
   - component: {fileID: 3919451262806220475}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Shade_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

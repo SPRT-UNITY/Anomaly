@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4551283162536156218}
   - component: {fileID: 6241145236106329967}
   - component: {fileID: 5008040817546775199}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Toothbrush_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5572567358443797325}
   - component: {fileID: 3174253301204722140}
   - component: {fileID: 9218802240790951230}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 3343822074857716928}
   - component: {fileID: 712759552879324592}
   - component: {fileID: 2939172837467808238}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   - component: {fileID: 1659857469314729043}
   - component: {fileID: 5945217668601531210}
   - component: {fileID: 1440817507546034696}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Toothbrush_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,7 @@ GameObject:
   - component: {fileID: 8879738533248640695}
   - component: {fileID: 5746356554507258287}
   - component: {fileID: 6232911335043513392}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: ToothbrushCup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 2646475706843648232}
   - component: {fileID: 5053475121790227152}
   - component: {fileID: 2984337109483025102}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Toothbrush_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 4011247842652404518}
   - component: {fileID: 5734906740425538207}
   - component: {fileID: 1864340401806800289}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Toothbrush_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -663,7 +663,7 @@ GameObject:
   - component: {fileID: 6192682233914820461}
   - component: {fileID: 2647241440768118416}
   - component: {fileID: 2000718877242346695}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Toothbrush_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -745,7 +745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3193454996857017611}
   - component: {fileID: 6976963301119809150}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Bathroom_Toothbrush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -797,7 +797,7 @@ GameObject:
   - component: {fileID: 6735819004835327438}
   - component: {fileID: 7848598160528006568}
   - component: {fileID: 4846336702953681073}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: ToothbrushCup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -883,7 +883,7 @@ GameObject:
   - component: {fileID: 3164162462923140451}
   - component: {fileID: 3687388690023252665}
   - component: {fileID: 3043455932364088678}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Toothbrush_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

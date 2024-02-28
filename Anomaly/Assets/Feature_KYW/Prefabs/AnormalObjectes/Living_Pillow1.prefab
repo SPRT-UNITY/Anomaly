@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1631870027151447204}
   - component: {fileID: 7349231381997748266}
   - component: {fileID: 8000679567230914411}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3392158626245747183}
   - component: {fileID: 3039583851179297708}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Living_Pillow1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 251818575765223658}
   - component: {fileID: 2159745007436482269}
   - component: {fileID: 8419798655054502700}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

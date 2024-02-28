@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7337888361042301947}
   - component: {fileID: 8601834554082799209}
   - component: {fileID: 7542358153959981895}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 2165763848081663944}
   - component: {fileID: 1325891842242757803}
   - component: {fileID: 2318778887109139573}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 8066572256526957350}
   - component: {fileID: 5909789168824145147}
   - component: {fileID: 2681528916958729857}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 685323224560774420}
   - component: {fileID: 863153272799457527}
   - component: {fileID: 56279032237593022}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6685249164769697631}
   - component: {fileID: 9142674190185894649}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Living_Mirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 4787243194588347475}
   - component: {fileID: 2476454278485960464}
   - component: {fileID: 4514668598519223087}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3421709683438748021}
   - component: {fileID: 8273749261078752818}
   - component: {fileID: 5085013636675886639}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8304867088902348760}
   - component: {fileID: 738750199599421169}
   - component: {fileID: 3892877664349076122}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4646617279286824756}
   - component: {fileID: 206695863530324750}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: Living_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

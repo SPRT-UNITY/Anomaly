@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2221110197708316074}
-  m_Layer: 0
+  m_Layer: 31
   m_Name: CeilingLights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,6 +41,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221110197708316074}
     m_Modifications:
+    - target: {fileID: 676711495122019700, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 804097742336104421, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 1869183925147285591, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -85,9 +93,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2365096607685010293, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470487186940225225, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922011769671348439, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727087888137805404, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5152450172770615854, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
       propertyPath: m_Name
       value: Lamp_Ceiling_Apt_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152450172770615854, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691827267328855637, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023807789287963809, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029112893627092599, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -177,6 +217,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2221110197708316074}
     m_Modifications:
+    - target: {fileID: 676711495122019700, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 804097742336104421, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 1869183925147285591, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -221,9 +269,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2365096607685010293, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3470487186940225225, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922011769671348439, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 4727087888137805404, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
     - target: {fileID: 5152450172770615854, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
       propertyPath: m_Name
       value: Lamp_Ceiling_Apt_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5152450172770615854, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 7691827267328855637, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 8023807789287963809, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 9029112893627092599, guid: 09457ce18601f204cbd5799ff191ff9e, type: 3}
+      propertyPath: m_Layer
+      value: 31
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
