@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <A_Location>k__BackingField: 5
-  <A_Type>k__BackingField: 0
-  <normalObject>k__BackingField: {fileID: 5127622273550742675}
-  <anormalObject>k__BackingField: {fileID: 4705548722100817481}
+  <A_Type>k__BackingField: 4
+  <NormalObject>k__BackingField: {fileID: 0}
+  <AnormalObject>k__BackingField: {fileID: 0}
   IsAppear: 0
 --- !u!1 &4705548722100817481
 GameObject:
