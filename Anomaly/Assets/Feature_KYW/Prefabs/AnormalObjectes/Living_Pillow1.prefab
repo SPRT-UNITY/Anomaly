@@ -137,7 +137,7 @@ Transform:
   - {fileID: 251818575765223658}
   - {fileID: 3012698376085952535}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3039583851179297708
 MonoBehaviour:
@@ -153,8 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <A_Location>k__BackingField: 0
   <A_Type>k__BackingField: 0
-  <normalObject>k__BackingField: {fileID: 9064544131179127318}
-  <anormalObject>k__BackingField: {fileID: 7738833961147180253}
+  <NormalObject>k__BackingField: {fileID: 9064544131179127318}
+  <AnormalObject>k__BackingField: {fileID: 7738833961147180253}
   IsAppear: 0
 --- !u!1 &9064544131179127318
 GameObject:

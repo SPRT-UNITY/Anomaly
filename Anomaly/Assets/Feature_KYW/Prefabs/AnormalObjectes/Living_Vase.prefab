@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2749999023685307460}
   - component: {fileID: 2994559505441975011}
   - component: {fileID: 5374331884059879848}
-  - component: {fileID: 7175571022918886430}
   m_Layer: 0
   m_Name: AnormalObject
   m_TagString: Untagged
@@ -84,27 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7175571022918886430
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 775111644936728978}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.73730063, y: 1.6800636, z: 0.73730063}
-  m_Center: {x: 0, y: 0.8400318, z: -0.000000014901161}
 --- !u!1 &1157371294885569296
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +115,7 @@ Transform:
   - {fileID: 8639219313682914931}
   - {fileID: 9158859127330774911}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8679391211448350315
 MonoBehaviour:
@@ -153,8 +131,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <A_Location>k__BackingField: 0
   <A_Type>k__BackingField: 0
-  <normalObject>k__BackingField: {fileID: 7245705473481031806}
-  <anormalObject>k__BackingField: {fileID: 2397887635385495404}
+  <NormalObject>k__BackingField: {fileID: 7245705473481031806}
+  <AnormalObject>k__BackingField: {fileID: 2397887635385495404}
   IsAppear: 0
 --- !u!1 &2397887635385495404
 GameObject:
@@ -166,6 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9158859127330774911}
   - component: {fileID: 4400908084230699894}
+  - component: {fileID: 710288177001319567}
   m_Layer: 0
   m_Name: Anormal
   m_TagString: Untagged
@@ -210,6 +189,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &710288177001319567
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2397887635385495404}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.73730063, y: 1.7745199, z: 1.0472301}
+  m_Center: {x: 0.000000086869974, y: 0.43555877, z: -0.21354881}
 --- !u!1 &7245705473481031806
 GameObject:
   m_ObjectHideFlags: 0
