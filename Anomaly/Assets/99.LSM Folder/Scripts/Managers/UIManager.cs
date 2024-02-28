@@ -5,13 +5,18 @@ using UnityEngine;
 
 public class UIManager : SingletoneBase<UIManager>
 {
-    public List<UIBase> UIList = new List<UIBase>();
-    [SerializeField] private Canvas canvas;
+    public List<UIBase> UIList;
+    public List<CanvasBase> canvasList; 
+
+    //[SerializeField] private Canvas canvas;
 
     private void Awake()
     {
         isDontDestroy = true;
         Init();
+
+        UIList = new List<UIBase>();
+        canvasList = new List<CanvasBase>();
     }
 
     public void OpenUI(GameObject obj)
@@ -22,6 +27,18 @@ public class UIManager : SingletoneBase<UIManager>
     public void CloseUI(GameObject obj)
     {
         obj.SetActive(false);
+    }
+
+    public CanvasBase GetCanvas(string CanvasName)
+    {
+        CanvasBase canvas = canvasList.Find(canvas => canvas.name == CanvasName);
+
+        if(canvas == null)
+        {
+            return null;
+        }
+
+        return canvas;
     }
 
     public UIBase GetUI(string UIName)
@@ -36,27 +53,27 @@ public class UIManager : SingletoneBase<UIManager>
         return ui;
     }
 
-    public void InitiateUI(string UIName)
-    {
-        UIBase ui = UIList.Find(ui => ui.name == UIName);
+    //public void InitiateUI(string UIName)
+    //{
+    //    UIBase ui = UIList.Find(ui => ui.name == UIName);
 
-        if (ui == null)
-        {
-            return;
-        }
+    //    if (ui == null)
+    //    {
+    //        return;
+    //    }
 
-        ui.InstantiateUI(canvas);
-    }
+    //    ui.InstantiateUI(canvas);
+    //}
 
-    public void Show(string UIName)
-    {
-        UIBase ui = UIList.Find(ui => ui.name == UIName);
+    //public void Show(string UIName)
+    //{
+    //    UIBase ui = UIList.Find(ui => ui.name == UIName);
 
-        if (ui == null)
-        {
-            return;
-        }
+    //    if (ui == null)
+    //    {
+    //        return;
+    //    }
 
-        ui.Show();
-    }
+    //    ui.Show();
+    //}
 }
