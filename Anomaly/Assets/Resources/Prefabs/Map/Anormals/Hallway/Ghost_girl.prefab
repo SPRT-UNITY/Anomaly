@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <A_Location>k__BackingField: 4
-  <A_Type>k__BackingField: 4
+  <A_Type>k__BackingField: 5
   <NormalObject>k__BackingField: {fileID: 7111241364235145677}
   <AnormalObject>k__BackingField: {fileID: 2354253850434647129}
   IsAppear: 0
@@ -408,11 +408,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3049918619219663542, guid: 7131fd92f3a26eb4ba74a5f0fcd1d176, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3049918619219663542, guid: 7131fd92f3a26eb4ba74a5f0fcd1d176, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.071
       objectReference: {fileID: 0}
     - target: {fileID: 3049918619219663542, guid: 7131fd92f3a26eb4ba74a5f0fcd1d176, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1064,7 +1064,7 @@ Animator:
   m_GameObject: {fileID: 2354253850434647129}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ac011aec0c820de46ac41240c4574679, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
