@@ -18,6 +18,11 @@ public class BlinkLamp : MonoBehaviour
         StartCoroutine(StartBlink());
     }
 
+    private void OnDisable()
+    {
+        _Light.enabled = true;
+    }
+
     IEnumerator StartBlink()
     {
         Material material = _MeshRenderer.material;

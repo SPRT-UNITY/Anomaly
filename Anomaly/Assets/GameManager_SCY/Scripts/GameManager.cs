@@ -43,6 +43,7 @@ public class GameManager : SingletoneBase<GameManager>
     public event Action OnAnomalyResolve;
     public event Action OnNoAnomaly;
     public event Action DontInterect;
+    public event Action OnPause;
 
     public event Action OnGameClear;//게임 클리어 시 이벤트
     public event Action OnGameover;//게임 오버 시 이벤트
@@ -83,7 +84,7 @@ public class GameManager : SingletoneBase<GameManager>
     {
         if (nowPlaying)
         {
-            MouseInput();
+            Input();
 
             GenerateAnomaly();
 
@@ -121,23 +122,33 @@ public class GameManager : SingletoneBase<GameManager>
         }
     }
 
-    private void MouseInput()
+    public void PauseGame()
     {
-        if (Input.GetMouseButtonDown(0))
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f;
+    }
+
+    private void Input()
+    {
+        if (UnityEngine.Input.GetMouseButtonDown(0))
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {
                 OnLeftMouseClick?.Invoke();
-                newMousePosition = Input.mousePosition;
+                newMousePosition = UnityEngine.Input.mousePosition;
             }
         }
 
-        if (canClick && Input.GetMouseButtonDown(1))
+        if (canClick && UnityEngine.Input.GetMouseButtonDown(1))
         {
-            OnRightMouseClick?.Invoke(Input.mousePosition);
+            OnRightMouseClick?.Invoke(UnityEngine.Input.mousePosition);
         }
 
-        if (canClick && Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
+        if (canClick && UnityEngine.Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             clicking += Time.deltaTime;
 
@@ -151,13 +162,18 @@ public class GameManager : SingletoneBase<GameManager>
             }
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (UnityEngine.Input.GetMouseButtonUp(0))
         {
             clicking = 0;
             if (canClick)
             {
                 CloseUI?.Invoke();
             }
+        }
+
+        if (UnityEngine.Input.GetKeyDown(KeyCode.Escape))
+        {
+            OnPause?.Invoke();
         }
     }
 
@@ -198,17 +214,22 @@ public class GameManager : SingletoneBase<GameManager>
         this.mouseposition = mousePosition;
 
         Ray ray = Camera.main.ScreenPointToRay(mouseposition);
-        RaycastHit hit;
+        RaycastHit[] hits;
         clicking = 0;
 
-        if (Physics.Raycast(ray, out hit, 100f, anomalyLayer))
-        {
-            nowCheckingAnomaly = hit.transform.GetComponentInParent<AnormalyBase>();
+        hits = Physics.RaycastAll(ray, 100f, anomalyLayer);
 
-        }
-        else
+        nowCheckingAnomaly = null;
+
+        foreach (RaycastHit hit in hits)
         {
-            nowCheckingAnomaly = null;
+            AnormalyBase anomaly = hit.transform.GetComponentInParent<AnormalyBase>();
+
+            if (anomaly.IsAppear)
+            {
+                nowCheckingAnomaly = anomaly;
+                break;
+            }
         }
 
         if (nowCheckingAnomaly != null && nowCheckingAnomaly.A_Type == Anomaly_Type.Abyss)
