@@ -6,6 +6,9 @@ using UnityEngine.Rendering.PostProcessing;
 
 public class CameraEffect : MonoBehaviour
 {
+    [HideInInspector]
+    protected AnormalyObject anormalyObject;
+
     [field: SerializeField, Range(0f, 1f)]
     protected float interpolationRate = 0.002f;
 
@@ -15,12 +18,15 @@ public class CameraEffect : MonoBehaviour
     protected void Awake()
     {
         postProcessVolume = GetComponent<PostProcessVolume>();
+        anormalyObject = GetComponentInParent<AnormalyObject>();
+        CameraManager.Instance.CameraChange += CheckVolumeEnable;
     }
     // Start is called before the first frame update
     void Start()
     {
         postProcessVolume.isGlobal = true;
         postProcessVolume.priority = 1;
+        CheckVolumeEnable();
     }
 
     private void OnEnable()
@@ -30,8 +36,13 @@ public class CameraEffect : MonoBehaviour
 
     private void OnDisable()
     {
-        // StopCoroutine("Distortion");
-        // InitProfiles();
+        StopCoroutine("Distortion");
+        InitProfiles();
+    }
+
+    void CheckVolumeEnable() 
+    {
+        postProcessVolume.enabled = CameraManager.Instance.CurCameraLookLocation == anormalyObject.A_Location;
     }
 
     IEnumerator Distortion() 
@@ -49,11 +60,5 @@ public class CameraEffect : MonoBehaviour
 
     protected virtual void ApplyEffects()
     {
-    }
-
-    private void OnDestroy()
-    {
-        StopCoroutine("Distortion");
-        InitProfiles();
     }
 }
