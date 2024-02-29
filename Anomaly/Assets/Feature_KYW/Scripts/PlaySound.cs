@@ -7,10 +7,15 @@ public class PlaySound : MonoBehaviour
     [SerializeField] bool isBGM;
 
     public AudioClip clip;
-    
+
     private void Start()
     {
-        if(isBGM) PlayBGM();
+        if (isBGM) PlayBGM();
+    }
+
+    void OnDisable()
+    {
+        SoundManager.instance.StopBGM();
     }
 
     public void PlayBGM()

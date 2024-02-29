@@ -26,8 +26,14 @@ public class SoundManager : MonoBehaviour
         bgmPlayer.Play();
     }
 
+    public void StopBGM()
+    {
+        bgmPlayer.Stop();
+    }
+
     public void PlaySFX(AudioClip _clip)
     {
         sfxPlayer.PlayOneShot(_clip);
     }
+
 }
