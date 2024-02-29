@@ -17,7 +17,7 @@ public class TestCard : UIBase
 
         UIManager.Instance.GetCanvas("MainCanvas").gameObject.SetActive(false);
 
-        Invoke("CloseUI", 1f);
+        Invoke("CloseUI", 1.5f);
     }
 
     public override void CloseUI()

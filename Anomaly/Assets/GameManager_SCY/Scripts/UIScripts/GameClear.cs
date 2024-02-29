@@ -38,12 +38,12 @@ public class GameClear : UIBase
 
     public void OnRestartButton()
     {
-
+        LoadSceneController.LoadScene("MainScene");
     }
 
     public void OnQuitButton()
     {
-
+        SceneManager.LoadScene("Title");
     }
 
     private IEnumerator GameClearPop()
