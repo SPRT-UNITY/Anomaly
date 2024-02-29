@@ -15,6 +15,11 @@ public class UIManager : SingletoneBase<UIManager>
         isDontDestroy = true;
         Init();
 
+        if (SoundManager.Instance == null)
+        {
+            SoundManager.Instance.Init();
+        }
+
         UIList = new List<UIBase>();
         canvasList = new List<CanvasBase>();
     }
