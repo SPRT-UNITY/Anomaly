@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 996609643010613290}
   - component: {fileID: 3166074005725605635}
-  - component: {fileID: 1991335940041825861}
+  - component: {fileID: 1953876420873935961}
   m_Layer: 0
   m_Name: Anormal
   m_TagString: Untagged
@@ -50,7 +50,7 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   priority: 1
---- !u!114 &1991335940041825861
+--- !u!114 &1953876420873935961
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -59,11 +59,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1445752957104321967}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21560eb6bf48a064a9c67fc96fcaff47, type: 3}
+  m_Script: {fileID: 11500000, guid: f21c5a431c2cdd744b40259f1b1f2463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   interpolationRate: 0.002
-  postProcessVolume: {fileID: 3166074005725605635}
+  postProcessVolume: {fileID: 0}
 --- !u!1 &1726116054357051976
 GameObject:
   m_ObjectHideFlags: 0
