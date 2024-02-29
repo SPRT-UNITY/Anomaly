@@ -40,7 +40,7 @@ public class TitleGameStartCanvas : UIBase
         Button backButton = StartButtons[(int)TitleStartButtonType.Back];
 
         //Button OnClick AddListeners
-        StartButtons[(int)TitleStartButtonType.House].onClick.AddListener(() => LoadSceneController.LoadScene("LSM_Scene2"));
+        StartButtons[(int)TitleStartButtonType.House].onClick.AddListener(() => LoadSceneController.LoadScene("MainScene"));
         backButton.onClick.AddListener(() => backButton.GetComponent<OnPointerEnter_Button>().OnMouseImage_ActiveFalse());
     }
 }
