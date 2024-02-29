@@ -4857,6 +4857,7 @@ GameObject:
   - component: {fileID: 2552389149688997135}
   - component: {fileID: 9207375301506513542}
   - component: {fileID: 3003052110163555544}
+  - component: {fileID: 4490413617722863420}
   m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
@@ -4922,6 +4923,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.178346, y: 1.8766513, z: 2.075941}
   m_Center: {x: -0.34175265, y: 3.9603589, z: -1.4965136}
+--- !u!114 &4490413617722863420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859524393947623736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be8c89488b068f8488de040329c57390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1101387131639086064
 GameObject:
   m_ObjectHideFlags: 0
@@ -34166,7 +34179,7 @@ Transform:
   - {fileID: 2552389149688997135}
   - {fileID: 139228835883215831}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3068816719561954678
 MonoBehaviour:
