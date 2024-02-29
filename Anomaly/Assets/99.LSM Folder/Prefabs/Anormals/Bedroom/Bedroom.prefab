@@ -664,13 +664,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <A_Location>k__BackingField: 1
   <A_Type>k__BackingField: 0
-<<<<<<< Updated upstream:Anomaly/Assets/99.LSM Folder/Prefabs/Anormals/Bedroom/Bedroom.prefab
   <NormalObject>k__BackingField: {fileID: 0}
   <AnormalObject>k__BackingField: {fileID: 0}
-=======
-  <NormalObject>k__BackingField: {fileID: 5653174323106420155}
-  <AnormalObject>k__BackingField: {fileID: 2344947438388099815}
->>>>>>> Stashed changes:Anomaly/Assets/99.LSM Folder/Prefabs/Rooms/Bedroom.prefab
   IsAppear: 0
 --- !u!1 &788935800380275635
 GameObject:
@@ -1530,7 +1525,7 @@ Transform:
   - {fileID: 5272922676464664987}
   - {fileID: 4041986116980118198}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1909107827850045162
 GameObject:
