@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7409962569915431660}
   - component: {fileID: 4065744170241985136}
+  - component: {fileID: 8655411209347257291}
   m_Layer: 31
   m_Name: Anormal
   m_TagString: Untagged
@@ -55,6 +56,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &8655411209347257291
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 355209716838013950}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6650729, y: 1.3085842, z: 3.522727}
+  m_Center: {x: -2.6314728, y: 3.6912174, z: -5.54803}
 --- !u!1 &4493949164659526090
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,6 +561,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8285203619225461594}
+  - component: {fileID: 5724233087513141860}
   m_Layer: 31
   m_Name: Normal
   m_TagString: Untagged
@@ -563,3 +586,24 @@ Transform:
   m_Father: {fileID: 1573191990677016837}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5724233087513141860
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7873873761357740453}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6650729, y: 1.3085842, z: 3.522727}
+  m_Center: {x: -2.6314728, y: 3.6912174, z: -5.54803}
