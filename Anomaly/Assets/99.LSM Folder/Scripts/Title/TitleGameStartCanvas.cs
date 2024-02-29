@@ -1,19 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+
+enum TitleStartButtonType
+{
+    House,
+    Dungeon,
+    School,
+    Museum,
+    Hospital,
+    Office,
+    Back
+}
 
 public class TitleGameStartCanvas : UIBase
 {
     [SerializeField] private Button ExitButton;
-    [SerializeField] private Button StartHouseButton;
+    [SerializeField] private Button[] StartButtons;
+
 
     private void Awake()
     {
         ExitButton.onClick.AddListener(() => CloseUI());
-<<<<<<< Updated upstream
-        StartHouseButton.onClick.AddListener(() => LoadSceneController.LoadScene("LSM_Scene2"));
-=======
         InitButtons();
     }
 
@@ -30,8 +40,7 @@ public class TitleGameStartCanvas : UIBase
         Button backButton = StartButtons[(int)TitleStartButtonType.Back];
 
         //Button OnClick AddListeners
-        StartButtons[(int)TitleStartButtonType.House].onClick.AddListener(() => LoadSceneController.LoadScene("MainScene"));
+        StartButtons[(int)TitleStartButtonType.House].onClick.AddListener(() => LoadSceneController.LoadScene("LSM_Scene2"));
         backButton.onClick.AddListener(() => backButton.GetComponent<OnPointerEnter_Button>().OnMouseImage_ActiveFalse());
->>>>>>> Stashed changes
     }
 }
