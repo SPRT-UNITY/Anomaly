@@ -1486,6 +1486,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6835361222130171499}
+  - component: {fileID: 763332655475701202}
   m_Layer: 5
   m_Name: Volumes
   m_TagString: Untagged
@@ -1515,6 +1516,21 @@ RectTransform:
   m_AnchoredPosition: {x: -204, y: 161}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &763332655475701202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5380701260387353637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a0937d86b0052b4c9e04aa436a4c6fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 1ad59f69da9c79b48b634bbe04bfd431, type: 2}
+  bgmSlider: {fileID: 9112001379223345280}
+  sfxSlider: {fileID: 827016992485177664}
 --- !u!1 &5397775363121995628
 GameObject:
   m_ObjectHideFlags: 0
@@ -1881,6 +1897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TitleMainButtons: []
+  OptionBackButton: {fileID: 0}
   OptionPanel: {fileID: 7180224422637253412}
 --- !u!1 &6133218383390102603
 GameObject:
