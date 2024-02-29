@@ -6,6 +6,7 @@ using UnityEngine;
 public class TestCard : UIBase
 {
     [SerializeField] private TextMeshProUGUI text;
+    private PlaySound sound;
 
     private string[] texts = new string[]
     {
@@ -20,6 +21,8 @@ public class TestCard : UIBase
     {
         GameManager.Instance.OnAnomalyResolve += Show;
 
+        sound = GetComponent<PlaySound>();
+
         text.gameObject.SetActive(false);
         gameObject.SetActive(false);
     }
@@ -27,6 +30,7 @@ public class TestCard : UIBase
     public override void Show()
     {
         base.Show();
+        sound.PlaySFX();
 
         UIManager.Instance.GetCanvas("MainCanvas").gameObject.SetActive(false);
 
