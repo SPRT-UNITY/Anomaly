@@ -50,7 +50,7 @@ public class CameraManager : SingletoneBase<CameraManager>
         outWorkCamera = -1;
 
         _CameraPostPorcessVolume = GetComponent<PostProcessVolume>();
-        _PostPorcessProfiles.Add(ResourceManager.Instance.Load<PostProcessProfile>("Lighting/Bloom"));
+        _PostPorcessProfiles.Add(ResourceManager.Instance.Load<PostProcessProfile>("Lighting/Default"));
         _PostPorcessProfiles.Add(ResourceManager.Instance.Load<PostProcessProfile>("Lighting/Noise"));
         CameraChange += SetCameraNoise;
 
