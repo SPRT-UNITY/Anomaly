@@ -30,8 +30,8 @@ public class CameraEffect : MonoBehaviour
 
     private void OnDisable()
     {
-        StopCoroutine("Distortion");
-        InitProfiles();
+        // StopCoroutine("Distortion");
+        // InitProfiles();
     }
 
     IEnumerator Distortion() 
@@ -49,5 +49,11 @@ public class CameraEffect : MonoBehaviour
 
     protected virtual void ApplyEffects()
     {
+    }
+
+    private void OnDestroy()
+    {
+        StopCoroutine("Distortion");
+        InitProfiles();
     }
 }
