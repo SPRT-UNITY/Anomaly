@@ -8,13 +8,13 @@ public class LoadSceneController : MonoBehaviour
 {
     [SerializeField] private Slider LoadingBar;
     public static string nextScene;
+    [SerializeField] private Button StartButton;
 
     public static void LoadScene(string sceneName)
     {
         nextScene = sceneName;
         SceneManager.LoadScene("LoadingScene");
     }
-
     public void Start()
     {
         StartCoroutine(LoadSceneProcess());
@@ -40,13 +40,12 @@ public class LoadSceneController : MonoBehaviour
                 LoadingBar.value = Mathf.Lerp(0.5f, 1f, timer);
                 if(LoadingBar.value >= 1f)
                 {
-                    yield return new WaitForSeconds(1f);
-                    loadScene.allowSceneActivation = true;
+                    StartButton.gameObject.SetActive(true);
+                    StartButton.onClick.AddListener(() => loadScene.allowSceneActivation = true);
                     yield break;
                 }
             }
         }
-
         yield return null;
     }
 }
