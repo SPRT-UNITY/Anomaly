@@ -2,22 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : SingletoneBase<SoundManager>
 {
     public AudioSource bgmPlayer;
     public AudioSource sfxPlayer;
 
-    public static SoundManager instance;
-
     private void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-        } else
-        {
-            Destroy(gameObject);
-        }
+        isDontDestroy = true;
+        Init();
+    }
+
+    private void OnEnable()
+    {
+        bgmPlayer = ResourceManager.Instance.Instantiate("SoundPlayer/BGMPlayer",transform).GetComponent<AudioSource>();
+        sfxPlayer = ResourceManager.Instance.Instantiate("SoundPlayer/SFXPlayer", transform).GetComponent<AudioSource>();
     }
 
     public void PlayBGM(AudioClip _clip)

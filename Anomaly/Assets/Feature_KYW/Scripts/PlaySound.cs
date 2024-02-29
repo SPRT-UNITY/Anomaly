@@ -15,16 +15,16 @@ public class PlaySound : MonoBehaviour
 
     void OnDisable()
     {
-        SoundManager.instance.StopBGM();
+        SoundManager.Instance.StopBGM();
     }
 
     public void PlayBGM()
     {
-        SoundManager.instance.PlayBGM(clip);
+        SoundManager.Instance.PlayBGM(clip);
     }
 
     public void PlaySFX()
     {
-        SoundManager.instance.PlaySFX(clip);
+        SoundManager.Instance.PlaySFX(clip);
     }
 }

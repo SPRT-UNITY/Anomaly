@@ -53,6 +53,11 @@ public class GameManager : SingletoneBase<GameManager>
         UIManager.Instance.UIList.Clear();
         UIManager.Instance.canvasList.Clear();
 
+        if(SoundManager.Instance == null)
+        {
+            SoundManager.Instance.Init();
+        }
+
         time = 0;
         timeSecond = 0;
         timeMinute = 0;
