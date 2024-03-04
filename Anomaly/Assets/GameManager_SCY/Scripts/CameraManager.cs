@@ -40,8 +40,9 @@ public class CameraManager : SingletoneBase<CameraManager>
 
     private void Awake()
     {
+        Debug.Log("cameraManager");
+
         isDontDestroy = false;
-        Init();
 
         nowCameraNumber = 0;
         CurCameraLookLocation = CameraLookLocation(nowCameraNumber);

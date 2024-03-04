@@ -17,7 +17,6 @@ public class AnormalyController : SingletoneBase<AnormalyController>
     private void Awake()
     {
         isDontDestroy = false;
-        Init();
     }
 
     private void Start()

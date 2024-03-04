@@ -10,7 +10,6 @@ public class SoundManager : SingletoneBase<SoundManager>
     private void Awake()
     {
         isDontDestroy = true;
-        Init();
     }
 
     private void OnEnable()

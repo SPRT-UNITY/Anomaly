@@ -13,13 +13,9 @@ public class UIManager : SingletoneBase<UIManager>
     private void Awake()
     {
         isDontDestroy = true;
-        Init();
 
-        if (SoundManager.Instance == null)
-        {
-            SoundManager.Instance.Init();
-        }
-
+        SoundManager.Instance.Init();
+        
         UIList = new List<UIBase>();
         canvasList = new List<CanvasBase>();
     }
@@ -58,27 +54,4 @@ public class UIManager : SingletoneBase<UIManager>
         return ui;
     }
 
-    //public void InitiateUI(string UIName)
-    //{
-    //    UIBase ui = UIList.Find(ui => ui.name == UIName);
-
-    //    if (ui == null)
-    //    {
-    //        return;
-    //    }
-
-    //    ui.InstantiateUI(canvas);
-    //}
-
-    //public void Show(string UIName)
-    //{
-    //    UIBase ui = UIList.Find(ui => ui.name == UIName);
-
-    //    if (ui == null)
-    //    {
-    //        return;
-    //    }
-
-    //    ui.Show();
-    //}
 }

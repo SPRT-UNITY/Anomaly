@@ -31,19 +31,22 @@ public class SingletoneBase<T> : MonoBehaviour where T : MonoBehaviour
 
     public virtual void Init()
     {
-        if(_instance == null)
+        if(Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+
+            Debug.Log(transform.name + " is Destroy");
+        }
+        else
         {
             _instance = this as T;
             if (isDontDestroy)
             {
                 DontDestroyOnLoad(gameObject);
             }
-        }
-        else
-        {
-            Destroy(gameObject);
+
+            Debug.Log(transform.name + " is Init");
         }
 
-        Debug.Log(transform.name + "is Init");
     }
 }
