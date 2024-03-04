@@ -1,0 +1,60 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public enum Anomaly_Location
+{
+    Bed_Room,
+    Library,
+    Bath_Room,
+    Kichen,
+    Hallway,
+    Living_Room,
+}
+
+public enum Anomaly_Type
+{
+    Object,
+    Camera,
+    Light,
+    Mist,
+    Intruder,
+    Abyss
+}
+
+public class AnormalyBase : MonoBehaviour
+{
+    [field: SerializeField] public Anomaly_Location A_Location { get; protected set; }
+    [field: SerializeField] public Anomaly_Type A_Type { get; protected set; }
+    [field: SerializeField] public GameObject NormalObject { get; private set; }
+    [field: SerializeField] public GameObject AnormalObject { get; private set; }
+
+    [HideInInspector] public bool IsAppear;
+
+    private void Awake()
+    {
+        IsAppear = false;
+    }
+
+    private void Start()
+    {
+        AnormalyController.Instance.anomalyList.Add(this);
+        AtStart();
+    }
+
+    protected virtual void AtStart()
+    {
+
+    }
+
+    public virtual void GenerateAnomaly()
+    {
+        IsAppear = true;
+    }
+
+    public virtual void ResolveAnomaly()
+    {
+        IsAppear = false;
+    }
+}
