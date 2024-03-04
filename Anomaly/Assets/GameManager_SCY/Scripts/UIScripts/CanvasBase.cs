@@ -15,6 +15,5 @@ public class CanvasBase : MonoBehaviour
         }
 
         UIManager.Instance.canvasList.Add(this);
-        Debug.Log(this.name);
     }
 }

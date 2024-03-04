@@ -8,8 +8,6 @@ public class UIManager : SingletoneBase<UIManager>
     public List<UIBase> UIList;
     public List<CanvasBase> canvasList; 
 
-    //[SerializeField] private Canvas canvas;
-
     private void Awake()
     {
         isDontDestroy = true;
