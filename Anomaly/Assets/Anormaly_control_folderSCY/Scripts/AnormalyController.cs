@@ -17,35 +17,12 @@ public class AnormalyController : SingletoneBase<AnormalyController>
     private void Awake()
     {
         isDontDestroy = false;
-        Init();
     }
 
     private void Start()
     {
         isStart = false;
     }
-
-    //------------------------------------------------------------------------------------
-    //Test Code
-    public void GenerateAnomaly()
-    {
-        anomalyList[0].GenerateAnomaly();
-    }
-
-    public void TempButtoen()
-    {
-        AnormalyBase anomaly = CheckEnvironmentAnomaly(Anomaly_Location.Living_Room, Anomaly_Type.Object);
-
-        if(anomaly == null)
-        {
-            Debug.Log("NoAnomaly");
-        }
-        else
-        {
-            anomaly.ResolveAnomaly();
-        }
-    }
-    //------------------------------------------------------------------------------------
 
     public void ShuffleAnomaly()
     {

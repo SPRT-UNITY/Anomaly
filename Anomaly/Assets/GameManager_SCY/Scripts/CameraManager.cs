@@ -41,7 +41,6 @@ public class CameraManager : SingletoneBase<CameraManager>
     private void Awake()
     {
         isDontDestroy = false;
-        Init();
 
         nowCameraNumber = 0;
         CurCameraLookLocation = CameraLookLocation(nowCameraNumber);

@@ -27,6 +27,10 @@ public class ReportPopUp : UIBase
 
             LimitPosition();
         }
+        else
+        {
+            ResetUI();
+        }
     }
 
     private void LimitPosition()
