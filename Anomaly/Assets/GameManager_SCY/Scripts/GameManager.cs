@@ -18,6 +18,10 @@ public class GameManager : SingletoneBase<GameManager>
     private float anomalyCicle;//이상 현상 발생 주기
     private bool canClick;
     private bool nowPlaying;
+    public bool NowPlaying
+    {
+        get { return nowPlaying; }
+    }
 
     [HideInInspector] public int resolvedAnomaly;
     [HideInInspector] public int anomalyCount;
@@ -260,16 +264,19 @@ public class GameManager : SingletoneBase<GameManager>
     {
         CloseUI?.Invoke();
 
-        if (nowCheckingAnomaly != null && nowCheckingAnomaly.IsAppear)
+        if (nowPlaying)
         {
-            nowCheckingAnomaly.ResolveAnomaly();
+            if (nowCheckingAnomaly != null && nowCheckingAnomaly.IsAppear)
+            {
+                nowCheckingAnomaly.ResolveAnomaly();
 
-            OnAnomalyResolve?.Invoke();
-            resolvedAnomaly++;
-        }
-        else
-        {
-            OnNoAnomaly?.Invoke();
+                OnAnomalyResolve?.Invoke();
+                resolvedAnomaly++;
+            }
+            else
+            {
+                OnNoAnomaly?.Invoke();
+            }
         }
 
         canClick = true;
