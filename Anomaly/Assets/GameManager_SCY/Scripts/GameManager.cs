@@ -18,6 +18,10 @@ public class GameManager : SingletoneBase<GameManager>
     private float anomalyCicle;//이상 현상 발생 주기
     private bool canClick;
     private bool nowPlaying;
+    public bool NowPlaying
+    {
+        get { return nowPlaying; }
+    }
 
     [HideInInspector] public int resolvedAnomaly;
     [HideInInspector] public int anomalyCount;
@@ -35,28 +39,25 @@ public class GameManager : SingletoneBase<GameManager>
     public event Action<Vector3> OnRightMouseClick;//오른쪽 마우스 버튼 클릭
     public event Action OnLeftMouseClick;//왼쪽 마우스 버튼 클릭
     public event Action<float> OnClicking;//왼쪽 마우스 버튼 클릭 중
-    public event Action CloseUI;//UI 창 닫는 이벤트
+    public event Action CloseUI;//특정 UI 창 닫기 위한 이벤트
 
-    public event Action<int, int> UpdateTimeText;
+    public event Action<int, int> UpdateTimeText;//시간 체크 이벤트
     public event Action OnCheckingAnomaly;//이상현상 체크중 이벤트
     public event Action AnomalyWarning;//이상현상이 3개 쌓였을 때 이벤트
-    public event Action OnAnomalyResolve;
-    public event Action OnNoAnomaly;
-    public event Action DontInterect;
-    public event Action OnPause;
+    public event Action OnAnomalyResolve;//이상현상이 해결될 때 이벤트
+    public event Action OnNoAnomaly;//이상현상이 없을 때 이벤트
+    public event Action DontInterect;//상호작용할 수 없는 이상현상일 때 이벤트
+    public event Action OnPause;//일시정시 시
 
     public event Action OnGameClear;//게임 클리어 시 이벤트
     public event Action OnGameover;//게임 오버 시 이벤트
 
     private void Awake()
     {
+        isDontDestroy = false;
+
         UIManager.Instance.UIList.Clear();
         UIManager.Instance.canvasList.Clear();
-
-        if(SoundManager.Instance == null)
-        {
-            SoundManager.Instance.Init();
-        }
 
         time = 0;
         timeSecond = 0;
@@ -67,10 +68,8 @@ public class GameManager : SingletoneBase<GameManager>
         anomalyGenerateTime = 0;
         anomalyCicle = UnityEngine.Random.Range(20f, 30f);
 
-        isDontDestroy = false;
         canClick = true;
         nowPlaying = true;
-        Init();
     }
 
     private void Start()
@@ -80,6 +79,8 @@ public class GameManager : SingletoneBase<GameManager>
         resolvedAnomaly = 0;
 
         anomalyLayer = 1 << 31;
+
+        ResumeGame();
     }
 
     //--------------------------------------------------------------------------------------------------------------------
@@ -263,16 +264,19 @@ public class GameManager : SingletoneBase<GameManager>
     {
         CloseUI?.Invoke();
 
-        if (nowCheckingAnomaly != null && nowCheckingAnomaly.IsAppear)
+        if (nowPlaying)
         {
-            nowCheckingAnomaly.ResolveAnomaly();
+            if (nowCheckingAnomaly != null && nowCheckingAnomaly.IsAppear)
+            {
+                nowCheckingAnomaly.ResolveAnomaly();
 
-            OnAnomalyResolve?.Invoke();
-            resolvedAnomaly++;
-        }
-        else
-        {
-            OnNoAnomaly?.Invoke();
+                OnAnomalyResolve?.Invoke();
+                resolvedAnomaly++;
+            }
+            else
+            {
+                OnNoAnomaly?.Invoke();
+            }
         }
 
         canClick = true;

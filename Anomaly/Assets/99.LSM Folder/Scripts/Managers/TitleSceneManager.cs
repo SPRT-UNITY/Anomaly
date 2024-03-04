@@ -16,7 +16,7 @@ public class TitleSceneManager : SingletoneBase<TitleSceneManager>
     private void Init_TitleScene()
     {
         ResourceManager.Instance.Instantiate("Title/TitleUICanvas");
-        ResourceManager.Instance.Instantiate("Managers/UIManager");
+        UIManager.Instance.Init();
     }
 
     public void EndGame()

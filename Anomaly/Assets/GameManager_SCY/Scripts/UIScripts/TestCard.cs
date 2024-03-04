@@ -55,8 +55,11 @@ public class TestCard : UIBase
     {
         base.CloseUI();
 
-        UIManager.Instance.GetCanvas("MainCanvas").gameObject.SetActive(true);
-        UIManager.Instance.GetUI("AfterChecking").Show();
+        if (GameManager.Instance.NowPlaying)
+        {
+            UIManager.Instance.GetCanvas("MainCanvas").gameObject.SetActive(true);
+            UIManager.Instance.GetUI("AfterChecking").Show();
+        }
         UIManager.Instance.GetUI("Warning").CloseUI();
     }
 }
