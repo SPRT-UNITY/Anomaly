@@ -15,7 +15,10 @@ public class PlaySound : MonoBehaviour
 
     void OnDisable()
     {
-        SoundManager.Instance.StopBGM();
+        if (isBGM)
+        {
+            SoundManager.Instance.StopBGM();
+        }
     }
 
     public void PlayBGM()

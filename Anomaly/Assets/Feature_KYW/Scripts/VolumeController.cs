@@ -14,6 +14,9 @@ public class VolumeController : MonoBehaviour
     private void Start()
     {
         SetVolume();
+
+        bgmSlider.onValueChanged.AddListener(delegate { VolumeControl("BGM"); });
+        sfxSlider.onValueChanged.AddListener(delegate { VolumeControl("SFX"); });
     }
 
     public void VolumeControl(string _type)
