@@ -20,7 +20,7 @@ public enum PostProcessProfileType
 
 public class CameraManager : SingletoneBase<CameraManager>
 {
-    public List<CinemachineVirtualCamera> cameras = new List<CinemachineVirtualCamera>();
+    public List<CameraName> cameras = new List<CameraName>();
 
     [HideInInspector] public int nowCameraNumber;
     [HideInInspector] public bool isProblem;
@@ -151,11 +151,11 @@ public class CameraManager : SingletoneBase<CameraManager>
 
     public string NowCameraName()
     {
-        return cameras[nowCameraNumber].GetComponent<CameraName>().GetCameraName();
+        return cameras[nowCameraNumber].GetCameraName();
     }
 
     public Anomaly_Location CameraLookLocation(int index)
     {
-        return cameras[index].GetComponent<CameraName>().location;
+        return cameras[index].location;
     }
 }
