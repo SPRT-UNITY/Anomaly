@@ -3243,12 +3243,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameras:
-  - {fileID: 1501031558}
-  - {fileID: 85303922}
-  - {fileID: 2085385462}
-  - {fileID: 1876712952}
-  - {fileID: 475752393}
-  - {fileID: 1115951280}
+  - {fileID: 1501031560}
+  - {fileID: 85303924}
+  - {fileID: 2085385464}
+  - {fileID: 1876712954}
+  - {fileID: 475752395}
+  - {fileID: 1115951282}
   nowCameraNumber: 0
   isProblem: 0
   outWorkCamera: 0
