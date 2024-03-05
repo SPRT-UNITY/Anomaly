@@ -16,7 +16,10 @@
 ## 개발 환경
 - Engine : Unity 2022.3.2f1
 - Language : C#
-
+  
+## 플레이 영상
+[![Video Label](http://img.youtube.com/vi/C597u8tE0g8/0.jpg)](https://youtu.be/C597u8tE0g8)
+  
 ## 구성
 ### Title
 ![image](https://github.com/SPRT-UNITY/Anomaly/assets/37549333/26eb49df-c1ea-48d6-be47-c05b92b12278)
@@ -45,7 +48,7 @@
 
 #### 3. 카메라와 필터
  - Cinemachine을 이용해 카메라를 배치하고 여러 카메라 화면을 전환할 수 있도록 구현하였습니다.
- - 카메라 필터를 이용해 실제 CCTV를 보는 것 처럼 화면에 특수 효과를 넣었습니다.
+ - 포스트 프로세싱을 이용해 실제 CCTV를 보는 것 처럼 화면에 특수 효과를 넣었습니다.
 
 #### 4. 이상 현상
  - 게임이 시작되면, 무작위 주기별로 맵에 이상 현상이 나타나기 시작합니다.
