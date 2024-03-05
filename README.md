@@ -1,8 +1,10 @@
 # Alien Report
-
-
 ## 소개
 ### CCTV를 통해 집안에서 발생하는 이상 현상들을 감시하고 보고해라 
+
+![옵저베이션](https://github.com/SPRT-UNITY/Anomaly/assets/118743238/40614ab9-1b96-421f-946c-be14593ef327)
+
+**본 프로젝트는 I'm on observation Duty를 모티브로 제작했습니다**
 
 ## 개발 기간
 - 24.02.26 ~ 24.03.04
